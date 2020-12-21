@@ -1,0 +1,19 @@
+{
+    "catchTimes": 90,
+    "details": [{
+            "complete": 1,
+            "receive": 1,
+            "data": 40
+        },
+        {
+            "complete": 1,
+            "receive": 0,
+            "data": 80
+        },
+        {
+            "complete": 0,
+            "receive": 0,
+            "data": 120
+        }
+    ]
+}
