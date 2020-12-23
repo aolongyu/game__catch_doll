@@ -6,6 +6,7 @@ const initPage = (achievementData, iconGifts, inKindGifts, myWealth, signData, w
     // 初始选中按钮
     window.gameIcon = 8
     window.chance = iconGifts.type1.chance
+    window.giftLiclassName = 'giftShowTag1'
     // 初始化抓取次数
     let grabNumber = document.getElementsByClassName('grabNumber')[0].childNodes[1]
     grabNumber.innerText = achievementData.catchTimes
@@ -87,7 +88,7 @@ const initPage = (achievementData, iconGifts, inKindGifts, myWealth, signData, w
     const giftLine = document.getElementsByClassName('giftLine')[0]
     for (let i = 0; i < iconGifts.type1.details.length; i++) {
         let liNode = document.createElement('li')
-        liNode.className = 'giftShowTag giftShow'
+        liNode.className = 'giftShowTag1 giftShow'
         let iNode = document.createElement('img')
         iNode.className = 'giftImg'
         iNode.src = giftImg[iconGifts.type1.details[i].id]

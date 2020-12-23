@@ -48,7 +48,7 @@ import giftImg from './assets/exports'
 initPage(achievementData, iconGifts, inKindGifts, myWealth, signData, winners, giftImg)
 
 // 礼品循环滚动事件
-lantern(document.getElementsByClassName('giftList')[0], 3, 'giftShowTag')
+lantern(document.getElementsByClassName('giftList')[0], 3, 'giftShowTag1')
 
 // 抓盒币、抓实物切换事件绑定
 document.getElementsByClassName('boxIcon')[0].addEventListener('click', () => {

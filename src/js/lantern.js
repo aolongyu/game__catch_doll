@@ -1,21 +1,22 @@
 /**
  * 跑马灯
- * @param {object}} $element 
- * @param {number} speed 
+ * 依赖getStyle
+ * @param {object} element 操作元素
+ * @param {number} speed 移动速度
  */
+
 import getStyle from './getStyle'
 
 const lantern = (element, speed = 1, className) => {
-    let ul = element.getElementsByClassName('giftLine')[0]
-    let liTest = ul.getElementsByClassName(className)[0];
-    let liWidth = getStyle(liTest, 'width')
+    const ul = element.getElementsByClassName('giftLine')[0]
+    const liTemp = ul.getElementsByClassName(className)[0]
+    const liWidth = getStyle(liTemp, 'width')
     let offset = 0
-    let li
     let flag = true
 
-    function run() {
+    const run = () => {
         offset -= speed
-        li = ul.getElementsByClassName(className)[0]
+        let li = ul.getElementsByClassName(className)[0]
         if(!li) {
             flag = false
             return
@@ -30,9 +31,9 @@ const lantern = (element, speed = 1, className) => {
     }
 
     (function animloop() {
-        run();
-        flag && window.requestAnimationFrame(animloop);
-    })();
+        run()
+        flag && window.requestAnimationFrame(animloop)
+    })()
 }
 
 export default lantern
