@@ -22,6 +22,6 @@
     function () {
         const dpr = window.devicePixelRatio
         const viewport = document.getElementsByName('viewport')[0]
-        viewport.content = `width=device-width, user-scalable=no, initial-scale=${ 1 / dpr }, maximum-scale=${ 1 / dpr }, minimum-scale=${ 1 / dpr }`
+        viewport.content = `width=device-width, user-scalable=no, initial-scale=0.5, maximum-scale=${ 1 / dpr }, minimum-scale=${ 1 / dpr }`
     }
 )()

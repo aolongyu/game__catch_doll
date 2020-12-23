@@ -64,21 +64,24 @@
 
     .scroll {
         position: relative;
-        z-index: 999;
         width: 750px;
-        height: 84px;
+        height: 65px;
+        margin-top: 23px;
         overflow: hidden;
-        font-size: 0;
+        font-size: 22px;
 
         .awardedMsg {
             position: absolute;
+            display: inline-block;
             width: 200px;
-            transform: translateY(0);
+            transform: translate3d(-50%, 0px, 0px);
 
             .scrollLi {
                 line-height: 25px;
 
                 .nickname {
+                    display: block;
+                    padding-top: 5px;
                     color: rgb(172, 195, 225);
                 }
 
@@ -95,7 +98,8 @@
         position: relative;
         width: 473px;
         margin: 0 auto;
-        margin-top: 134px;
+        margin-top: 131px;
+        z-index: 9;
 
         .selectionBtn {
             width: 221px;
@@ -128,55 +132,113 @@
         position: absolute;
         top: 531px;
         width: 100%;
+        height: 470px;
         margin: 0 auto;
         font-size: 0;
-        transition: transform .5s linear;
+        transform-origin: 50% 0;
+        z-index: 5;
+        overflow: hidden;
 
-        .gripperLine {
-            display: inline-block;
-            position: relative;
-            vertical-align: top;
-            width: 34px;
-            height: 40px;
-            background: url(../assets/img/gripperLine.png) no-repeat;
-            background-size: 34px 242px;
-            overflow: hidden;
-            transition: height 1s linear;
-            z-index: 2;
-        }
+        .gripperHand {
+            transition: transform 1.5s linear;
 
-        .gripper {
-            display: inline-block;
-            vertical-align: top;
-            position: relative;
-            width: 135px;
-            height: 102px;
-            background: url(../assets/img/gripper.png) no-repeat -2px;
-            background-size: 135px 102px;
+            .gripper {
+                display: block;
+                position: relative;
+                width: 34px;
+                height: 301px;
+                margin-top: -200px;
+                margin-left: 361px;
+                background: url(../assets/img/gripper.png) no-repeat -2px;
+                background-size: 34px 301px;
+                z-index: 1;
 
-            z-index: 1;
-        }
+            }
 
-        .giftShow {
-            display: block;
-            width: 152px;
-            height: 131px;
-            margin: 0 auto;
-            margin-top: -18px;
-            padding: auto 10px;
-            background: url(../assets/img/giftShowBox.png) no-repeat 10px 0;
-            background-size: 132px 131px;
-            font-size: 22px;
-            transition: margin .5s linear;
-
-
-            .giftImg {
+            .hands {
                 display: inline-block;
-                width: 81px;
-                height: 83px;
-                margin-top: 28px;
-                background: url(../assets/img/giftIcon.png) no-repeat;
-                background-size: 81px 83px;
+                width: 59px;
+                height: 61px;
+                margin-top: -15px;
+                transition: transform .3s linear;
+            }
+
+            .handLeft {
+                background: url(../assets/img/gripperLeft.png);
+                background-size: 59px 61px;
+                transform-origin: 49px 4px;
+            }
+
+            .handRight {
+                margin-left: 18px;
+                background: url(../assets/img/gripperRight.png);
+                background-size: 59px 61px;
+                transform-origin: 10px 4px;
+            }
+
+            .giftShow {
+                position: relative;
+                display: block;
+                width: 152px;
+                height: 131px;
+                margin: 0 auto;
+                margin-top: -17px;
+                padding: auto 10px;
+                background: url(../assets/img/giftShowBox.png) no-repeat;
+                background-size: 152px 131px;
+                font-size: 22px;
+                transition: transform .5s ease-in;
+
+                .giftImg {
+                    display: inline-block;
+                    width: 81px;
+                    height: 83px;
+                    margin-top: 28px;
+                }
+
+                span {
+                    position: absolute;
+                    bottom: 0;
+                    left: 50%;
+                    transform: translateX(-50%);
+                }
+            }
+
+            .giftShowInKind {
+                position: relative;
+                display: block;
+                width: 152px;
+                height: 170px;
+                margin: 0 auto;
+                margin-top: -39px;
+                padding: auto 10px;
+                background-size: 152px 168px;
+                font-size: 22px;
+                transition: transform .5s ease-in;
+
+                .text {
+                    position: absolute;
+                    display: inline-block;
+                    max-width: 100%;
+                    bottom: 0;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    padding: 3px 12px;
+                    background-color: rgb(0, 0, 0);
+                    border-radius: 16px;
+                    border: solid 1px rgba(255, 255, 255, 0.27);
+                    opacity: 0.6;
+                    font-size: 20px;
+                    color: #edebd6;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                }
+
+                img {
+                    width: 152px;
+                    height: 168px;
+                }
             }
         }
     }
@@ -189,9 +251,10 @@
         margin-top: 152px;
         overflow: hidden;
         font-size: 0;
-        
+
         .giftLine {
             position: absolute;
+            left: 750px;
             bottom: 45px;
             white-space: nowrap;
             font-size: 0;
@@ -199,13 +262,14 @@
             transform: translateX(0);
 
             .giftShow {
+                position: relative;
                 display: inline-block;
                 vertical-align: bottom;
                 width: 152px;
                 height: 131px;
                 padding: auto 10px;
-                background: url(../assets/img/giftShowBox.png) no-repeat 10px 0;
-                background-size: 132px 131px;
+                background: url(../assets/img/giftShowBox.png) no-repeat;
+                background-size: 152px 131px;
                 font-size: 22px;
 
                 .giftImg {
@@ -213,8 +277,13 @@
                     width: 81px;
                     height: 83px;
                     margin-top: 28px;
-                    background: url(../assets/img/giftIcon.png) no-repeat;
-                    background-size: 81px 83px;
+                }
+
+                span {
+                    position: absolute;
+                    bottom: 0;
+                    left: 50%;
+                    transform: translateX(-50%);
                 }
             }
 
@@ -225,8 +294,7 @@
                 width: 152px;
                 height: 170px;
                 padding: auto 10px;
-                background: url(../assets/img/type2_001.png) no-repeat 30px 0;
-                background-size: 104px 164px;
+                background-size: 152px 168px;
                 font-size: 22px;
 
                 .text {
@@ -234,6 +302,7 @@
                     bottom: 0;
                     left: 50%;
                     transform: translateX(-50%);
+                    max-width: 100%;
                     padding: 3px 12px;
                     background-color: rgb(0, 0, 0);
                     border-radius: 16px;
@@ -241,6 +310,9 @@
                     opacity: 0.6;
                     font-size: 20px;
                     color: #edebd6;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
                 }
             }
 
@@ -251,7 +323,6 @@
                 height: 131px;
             }
         }
-
     }
 
     .machineMask {

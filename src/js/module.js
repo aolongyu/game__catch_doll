@@ -7,8 +7,12 @@
 import {
     iconGifts,
     inKindGifts,
-    wareHouse
+    wareHouse,
+    winners
 } from "../../mock/exports"
+import lantern from "./lantern"
+
+import giftImg from '../assets/exports'
 
 /**
  * 抓盒币、抓实物
@@ -24,20 +28,29 @@ const changeFetchSelection = (index) => {
     // 选中按钮遮罩层
     let boxIconBtnChecked = document.getElementsByClassName('mask')[0]
     boxIconBtnChecked.className = 'mask'
+    const awardedMsg = document.getElementsByClassName('awardedMsg')[0]
+    awardedMsg.innerHTML = ''
 
     if (index) { // 抓实物
 
-        const giftLine = document.getElementsByClassName('giftLine')[0]
-        giftLine.innerHTML = ''
-        for (let i = 0; i < inKindGifts.type1.length; i++) {
-            let liNode = document.createElement('li')
-            liNode.className = 'giftShowInKind'
-            let spanNode = document.createElement('span')
-            spanNode.classList.add('text')
-            spanNode.innerText = inKindGifts.type1[i].name
-            liNode.appendChild(spanNode)
-            giftLine.appendChild(liNode)
-        }
+        window.chance = inKindGifts.type1.chance
+
+        winners.inKind.forEach((item) => {
+            let li = document.createElement('li')
+            li.className = 'scrollLi'
+            let span1 = document.createElement('span')
+            span1.className = 'nickname'
+            span1.innerText = `恭喜 ${item.name} 获得`
+            let span2 = document.createElement('span')
+            span2.className = 'awardAmount'
+            span2.innerText = item.prize
+            li.appendChild(span1)
+            li.appendChild(span2)
+            awardedMsg.appendChild(li)
+        })
+
+        choiceNumber(199)
+        lantern(document.getElementsByClassName('giftList')[0], 3, 'giftShowInKindTag')
 
         window.gameIcon = 199
         selectionBtnMask.style.left = ''
@@ -63,18 +76,23 @@ const changeFetchSelection = (index) => {
 
         console.log('抓实物');
     } else { // 抓盒币
-        const giftLine = document.getElementsByClassName('giftLine')[0]
-        giftLine.innerHTML = ''
-        for (let i = 0; i < iconGifts.type1.length; i++) {
-            let liNode = document.createElement('li')
-            liNode.className = 'giftShowTag giftShow'
-            let iNode = document.createElement('i')
-            iNode.className = 'giftImg'
-            let textNode = document.createTextNode(iconGifts.type1[i].name)
-            iNode.appendChild(textNode)
-            liNode.appendChild(iNode)
-            giftLine.appendChild(liNode)
-        }
+        window.chance = iconGifts.type1.chance
+        winners.icon.forEach((item) => {
+            let li = document.createElement('li')
+            li.className = 'scrollLi'
+            let span1 = document.createElement('span')
+            span1.className = 'nickname'
+            span1.innerText = `恭喜 ${item.name} 获得`
+            let span2 = document.createElement('span')
+            span2.className = 'awardAmount'
+            span2.innerText = item.prize
+            li.appendChild(span1)
+            li.appendChild(span2)
+            awardedMsg.appendChild(li)
+        })
+
+        choiceNumber(8)
+        lantern(document.getElementsByClassName('giftList')[0], 3, 'giftShowTag')
 
         window.gameIcon = 8
         selectionBtnMask.style.right = ''
@@ -96,6 +114,9 @@ const changeFetchSelection = (index) => {
     }
 }
 
+/**
+ * 下一页
+ */
 const nextPage = () => {
     $.fn.fullpage.moveSectionDown();
 }
@@ -191,7 +212,7 @@ const windowMsgAndBtn = (arr01, data, arr02) => {
  * @param {any} data 传输到弹窗的数据
  */
 const openPopup = (msg, data) => {
-    console.log('openPopup: ' + msg + data)
+    // console.log('openPopup: ' + msg + data)
     switch (msg) {
         case 'checkRules':
             let popupActivityRulesBox = document.getElementsByClassName('popupActivityRulesBox')[0]
@@ -290,6 +311,9 @@ const openPopup = (msg, data) => {
                 data
             }])
             break;
+        case 'grabFailure': // 抓取失败
+            windowMsgAndBtn(['popupPromptMsg04', 'popupPromptBtn06'])
+            break;
         default:
             break;
     }
@@ -298,8 +322,13 @@ const openPopup = (msg, data) => {
     popup.style.display = 'block'
 }
 
+/**
+ * 提示弹窗选择
+ * @param {string} msg key
+ * @param {object} myWealth 我的财富数据
+ */
 const popupPromptBox = (msg, myWealth) => {
-    console.log('popupPromptBox: ' + msg);
+    // console.log('popupPromptBox: ' + msg);
     switch (msg) {
         case 'confirmPaymentSure':
             console.log(`目前拥有${myWealth.icons}盒币`);
@@ -311,9 +340,6 @@ const popupPromptBox = (msg, myWealth) => {
                 myWealth.icons -= window.gameIcon
                 closePopup()
                 grabAnimation()
-                // setTimeout(() => {
-                //     openPopup('acceptHappy', window.getGiftName) // 开启抓取成功弹窗
-                // }, 2500)
                 console.log(`支付${window.gameIcon}盒币成功\n目前剩余${myWealth.icons}盒币`);
             }
             break;
@@ -323,7 +349,9 @@ const popupPromptBox = (msg, myWealth) => {
             closePopup()
             break;
         case 'acceptHappy':
+        case 'tryAgain':
             closePopup()
+            break;
         default:
             break;
     }
@@ -334,7 +362,7 @@ const popupPromptBox = (msg, myWealth) => {
  * @param {number | string} iconNum 选择的支付盒币数
  */
 const choiceNumber = (iconNum) => {
-    console.log(iconNum);
+    console.log(`投币数${iconNum}`);
     if (iconNum === 'go') {
         if (window.gameIcon) {
             openPopup('confirmPayment', `${window.gameIcon}盒币`)
@@ -347,67 +375,86 @@ const choiceNumber = (iconNum) => {
     let boxIconBtnChecked = document.getElementsByClassName('mask')[0]
     const giftLine = document.getElementsByClassName('giftLine')[0]
     giftLine.innerHTML = ''
+    giftLine.style.left = '7.5rem'
     switch (iconNum) {
         case 8:
+            window.chance = iconGifts.type1.chance
             boxIconBtnChecked.className = 'mask mask8'
-            
-            for (let i = 0; i < iconGifts.type1.length; i++) {
+
+            for (let i = 0; i < iconGifts.type1.details.length; i++) {
                 let liNode = document.createElement('li')
                 liNode.className = 'giftShowTag giftShow'
-                let iNode = document.createElement('i')
+                let iNode = document.createElement('img')
                 iNode.className = 'giftImg'
-                let textNode = document.createTextNode(iconGifts.type1[i].name)
-                iNode.appendChild(textNode)
+                iNode.src = giftImg[iconGifts.type1.details[i].id]
+                let spanNode = document.createElement('span')
+                spanNode.innerText = iconGifts.type1.details[i].name
+                liNode.appendChild(spanNode)
                 liNode.appendChild(iNode)
                 giftLine.appendChild(liNode)
             }
+
             break;
         case 18:
+            window.chance = iconGifts.type2.chance
             boxIconBtnChecked.className = 'mask mask18'
-            for (let i = 0; i < iconGifts.type2.length; i++) {
+            for (let i = 0; i < iconGifts.type2.details.length; i++) {
                 let liNode = document.createElement('li')
                 liNode.className = 'giftShowTag giftShow'
-                let iNode = document.createElement('i')
+                let iNode = document.createElement('img')
                 iNode.className = 'giftImg'
-                let textNode = document.createTextNode(iconGifts.type2[i].name)
-                iNode.appendChild(textNode)
+                iNode.src = giftImg[iconGifts.type2.details[i].id]
+                let spanNode = document.createElement('span')
+                spanNode.innerText = iconGifts.type2.details[i].name
+                liNode.appendChild(spanNode)
                 liNode.appendChild(iNode)
                 giftLine.appendChild(liNode)
             }
             break;
         case 38:
+            window.chance = iconGifts.type3.chance
             boxIconBtnChecked.className = 'mask mask38'
-            for (let i = 0; i < iconGifts.type3.length; i++) {
+            for (let i = 0; i < iconGifts.type3.details.length; i++) {
                 let liNode = document.createElement('li')
                 liNode.className = 'giftShowTag giftShow'
-                let iNode = document.createElement('i')
+                let iNode = document.createElement('img')
                 iNode.className = 'giftImg'
-                let textNode = document.createTextNode(iconGifts.type3[i].name)
-                iNode.appendChild(textNode)
+                iNode.src = giftImg[iconGifts.type3.details[i].id]
+                let spanNode = document.createElement('span')
+                spanNode.innerText = iconGifts.type3.details[i].name
+                liNode.appendChild(spanNode)
                 liNode.appendChild(iNode)
                 giftLine.appendChild(liNode)
             }
             break;
         case 199:
+            window.chance = inKindGifts.type1.chance
             boxIconBtnChecked.className = 'mask mask199'
-            for (let i = 0; i < inKindGifts.type1.length; i++) {
+            for (let i = 0; i < inKindGifts.type1.details.length; i++) {
                 let liNode = document.createElement('li')
-                liNode.className = 'giftShowInKind'
+                liNode.className = 'giftShowInKindTag giftShowInKind'
+                let iNode = document.createElement('img')
+                iNode.src = giftImg[inKindGifts.type1.details[i].id]
                 let spanNode = document.createElement('span')
                 spanNode.classList.add('text')
-                spanNode.innerText = inKindGifts.type1[i].name
+                spanNode.innerText = inKindGifts.type1.details[i].name
+                liNode.appendChild(iNode)
                 liNode.appendChild(spanNode)
                 giftLine.appendChild(liNode)
             }
             break;
         case 1299:
+            window.chance = inKindGifts.type2.chance
             boxIconBtnChecked.className = 'mask mask1299'
-            for (let i = 0; i < inKindGifts.type2.length; i++) {
+            for (let i = 0; i < inKindGifts.type2.details.length; i++) {
                 let liNode = document.createElement('li')
-                liNode.className = 'giftShowInKind'
+                liNode.className = 'giftShowInKindTag giftShowInKind'
+                let iNode = document.createElement('img')
+                iNode.src = giftImg[inKindGifts.type2.details[i].id]
                 let spanNode = document.createElement('span')
                 spanNode.classList.add('text')
-                spanNode.innerText = inKindGifts.type2[i].name
+                spanNode.innerText = inKindGifts.type2.details[i].name
+                liNode.appendChild(iNode)
                 liNode.appendChild(spanNode)
                 giftLine.appendChild(liNode)
             }
@@ -418,70 +465,94 @@ const choiceNumber = (iconNum) => {
 }
 
 /**
- * 抓取动画
+ * 抓取动画&&抓取逻辑
  */
 const grabAnimation = () => {
-    let gripperLine = document.getElementsByClassName('gripperLine')[0]
     let gripperBox = document.getElementsByClassName('gripperBox')[0]
+    let gripperHand = document.getElementsByClassName('gripperHand')[0]
+    const handLeft = document.getElementsByClassName('handLeft')[0]
+    const handRight = document.getElementsByClassName('handRight')[0]
+    let timer1
     new Promise((resolve) => {
-        let deg = 7
-        gripperBox.style.transform = `rotate(${deg}deg)`
-        let timer1 = setInterval(() => {
-            gripperBox.style.transform = `rotate(${-deg}deg)`
-            deg = -deg
-        }, 1000)
+        let flag = 1
+        let deg = 0
+        timer1 = setInterval(() => {
+            deg += 0.6 * flag
+            gripperBox.style.transform = `rotate(${deg}deg)`
+            if (Math.abs(deg) >= 7.5) {
+                if (deg < 0) {
+                    flag = 1
+                } else {
+                    flag = -1
+                }
+            }
+        }, 50)
 
         setTimeout(() => {
-            clearInterval(timer1)
             let timer = setInterval(() => {
-                let giftLineFirstChild = document.getElementsByClassName('giftShowTag')[0]
+                let giftLineFirstChild = document.getElementsByClassName('giftShowTag')[0] || document.getElementsByClassName('giftShowInKind')[0]
                 let left = giftLineFirstChild.getBoundingClientRect().left
-                if (left <= -5 && left >= -15) {
+                if (left <= -60 && left >= -65) {
                     console.log(left)
                     clearInterval(timer)
-                    gripperBox.style.transition = 'all 0s'
                     gripperBox.style.transform = 'rotate(0)'
                     resolve()
                 }
             }, 20);
-        }, 2000)
-
+            handLeft.style.transform = 'rotate(17deg)'
+            handRight.style.transform = 'rotate(-17deg)'
+        }, 2400)
     }).then(() => {
-        gripperLine.style.height = '2.36rem'
+        clearInterval(timer1)
+
+        gripperHand.style.transform = 'translate3d(0px, 2.15rem, 0px)'
+
+        setTimeout(() => {
+            handLeft.style.transform = 'rotate(0deg)'
+            handRight.style.transform = 'rotate(0deg)'
+        }, 1100)
+
         setTimeout(() => {
             // 在轨道上去除抓中的盒子
-            let gripperBox = document.getElementsByClassName('gripperBox')[0]
-            let giftShows = document.getElementsByClassName('giftShowTag')
-            const temp = giftShows[3]
-            const clone = giftShows[3].cloneNode(true)
-            giftShows[3].className = 'giftShowTag giftNone'
-            gripperBox.appendChild(clone)
+            let giftShows = document.getElementsByClassName('giftShowTag')[0] ? document.getElementsByClassName('giftShowTag') : document.getElementsByClassName('giftShowInKind')
+            const temp = giftShows[2]
+            const clone = giftShows[2].cloneNode(true)
+            temp.style.opacity = '0'
+            gripperHand.appendChild(clone)
             window.getGiftName = temp.firstChild.innerText
-            setTimeout(() => {
-                temp.className = 'giftShowTag giftShow'
-                gripperBox.lastChild.remove()
-            }, 1000)
             // 爪子回到原来位置
-            gripperLine.style.height = '0.4rem'
-            gripperBox.style.transition = 'transform 1s linear'
+            gripperHand.style.transition = 'transform 0.6s ease-in'
+            gripperHand.style.transform = 'translate3d(0px, 0px, 0px)'
 
             const rand = Math.random()
-            console.log('rand', rand)
-            if (rand < 0.5) {
-                dropAnimation()
+            console.log("%c%s", "color: #fff; background: #20B2AA; font-size: 12px;", `当前概率: ${rand}, 抓中概率: ${window.chance}, 是否抓中: ${rand < window.chance}`);
+            if (rand >= window.chance) {
+                dropAnimation(clone)
+                setTimeout(() => {
+                    openPopup('grabFailure') // 抓取失败弹窗
+                    gripperHand.style.transition = 'transform 1.5s linear'
+                    temp.style.opacity = '1'
+                    gripperHand.lastChild.remove()
+                }, 900)
+            } else {
+                setTimeout(() => {
+                    openPopup('acceptHappy', window.getGiftName) // 开启抓取成功弹窗
+                    gripperHand.style.transitionDuration = '1.5s'
+                    temp.style.opacity = '1'
+                    gripperHand.lastChild.remove()
+                }, 700)
             }
-        }, 1000)
+        }, 1370)
     })
 }
 
 /**
- * 掉落
+ * 掉落动画
  */
-const dropAnimation = () => {
+const dropAnimation = (clone) => {
     setTimeout(() => {
-        const gripperNext = document.getElementsByClassName('gripper')[0].nextElementSibling
-        gripperNext.style.marginTop = '3.33rem'
-    }, 500)
+        clone.style.transform = 'translate3d(0px, 5.5rem, 0px)'
+    }, 400)
 }
 
 export {

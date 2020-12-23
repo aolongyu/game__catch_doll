@@ -1,9 +1,11 @@
 /**
  * 初始化页面数据
  */
-const initPage = (achievementData, iconGifts, inKindGifts, myWealth, signData, winners) => {
+
+const initPage = (achievementData, iconGifts, inKindGifts, myWealth, signData, winners, giftImg) => {
     // 初始选中按钮
     window.gameIcon = 8
+    window.chance = iconGifts.type1.chance
     // 初始化抓取次数
     let grabNumber = document.getElementsByClassName('grabNumber')[0].childNodes[1]
     grabNumber.innerText = achievementData.catchTimes
@@ -83,16 +85,22 @@ const initPage = (achievementData, iconGifts, inKindGifts, myWealth, signData, w
 
     // 初始化滚动gifts
     const giftLine = document.getElementsByClassName('giftLine')[0]
-    for (let i = 0; i < iconGifts.type1.length; i++) {
+    for (let i = 0; i < iconGifts.type1.details.length; i++) {
         let liNode = document.createElement('li')
         liNode.className = 'giftShowTag giftShow'
-        let iNode = document.createElement('i')
+        let iNode = document.createElement('img')
         iNode.className = 'giftImg'
-        let textNode = document.createTextNode(iconGifts.type1[i].name)
-        iNode.appendChild(textNode)
+        iNode.src = giftImg[iconGifts.type1.details[i].id]
+        let spanNode = document.createElement('span')
+        spanNode.innerText = iconGifts.type1.details[i].name
+        liNode.appendChild(spanNode)
         liNode.appendChild(iNode)
         giftLine.appendChild(liNode)
     }
+
+    // 初始化我的抓抓券
+    const stamps = document.getElementsByClassName('stamps')[0]
+    stamps.innerText = `我的抓抓券 : ${myWealth.vouchers > 99 ? '99+' : myWealth.vouchers}`
 }
 
 export default initPage

@@ -7,6 +7,8 @@ import './less/jquery.fullPage.css'
 
 // (js)fontSize设定
 import './js/pageConfig'
+import './js/requestAnimationFrame.js'
+
 // (js)fullpage
 import './js/fullPage'
 // (js)初始化页面自定义函数自调用
@@ -36,17 +38,17 @@ import {
   wareHouse
 } from '../mock/exports'
 
+import giftImg from './assets/exports'
 
 //--------------------------------------------------------------------------//
 //---------------------------------以上导入---------------------------------//
 //--------------------------------------------------------------------------//
 
 // 初始化页面所需数据
-initPage(achievementData, iconGifts, inKindGifts, myWealth, signData, winners)
+initPage(achievementData, iconGifts, inKindGifts, myWealth, signData, winners, giftImg)
 
 // 礼品循环滚动事件
-// lantern($('.giftList'), 1)
-lantern(document.getElementsByClassName('giftList')[0], 20)
+lantern(document.getElementsByClassName('giftList')[0], 3, 'giftShowTag')
 
 // 抓盒币、抓实物切换事件绑定
 document.getElementsByClassName('boxIcon')[0].addEventListener('click', () => {
@@ -134,4 +136,4 @@ for (let i = 0; i < boxIconBtnInKindsAttrs.objs.length; i++) {
 
 // 获奖滚动
 const awardedMsg = document.getElementsByClassName('awardedMsg')[0]
-carousel(awardedMsg, 500, 500)
+carousel(awardedMsg, 2, 600)

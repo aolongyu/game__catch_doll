@@ -21,6 +21,7 @@ module.exports = {
         hot: true,
         overlay: true,
     },
+    devtool: 'inline-source-map',
     module: {
         rules: [{
                 test: /\.css$/,
@@ -106,7 +107,7 @@ module.exports = {
         new UglifyJsPlugin(),
         new FriendlyErrorsWebpackPlugin(),
         new MiniCssExtractPlugin({
-            filename: 'styles-[hash:8].css'
+            filename: 'styles-[contentHash:8].css'
         })
     ],
 }
