@@ -6,16 +6,16 @@ import './less/styles.less'
 import './less/jquery.fullPage.css'
 
 // (js)fontSize设定
-import './js/pageConfig'
-import './js/requestAnimationFrame.js'
+import './js/utils/pageConfig'
+import './js/utils/requestAnimationFrame.js'
 
 // (js)fullpage
-import './js/fullPage'
+import './js/utils/fullPage'
 // (js)初始化页面自定义函数自调用
-import initPage from './js/initPage'
+import initPage from './js/utils/initPage'
 // (js)礼品滚动函数封装
-import lantern from './js/lantern'
-import carousel from './js/carousel'
+import lantern from './js/utils/lantern'
+import carousel from './js/utils/carousel'
 // (js)各点击事件函数封装
 import {
   changeFetchSelection,
@@ -25,7 +25,7 @@ import {
   openPopup,
   popupPromptBox,
   choiceNumber,
-} from './js/module'
+} from './js/main'
 
 // (json)模拟服务端数据
 import {
@@ -39,7 +39,6 @@ import {
 } from '../mock/exports'
 
 import giftImg from './assets/exports'
-
 //--------------------------------------------------------------------------//
 //---------------------------------以上导入---------------------------------//
 //--------------------------------------------------------------------------//

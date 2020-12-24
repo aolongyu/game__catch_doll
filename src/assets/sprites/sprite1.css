@@ -1,0 +1,360 @@
+/*
+Icon classes can be used entirely standalone. They are named after their original file names.
+
+Example usage in HTML:
+
+`display: block` sprite:
+<div class="icon-home"></div>
+
+To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+
+// CSS
+.icon {
+  display: inline-block;
+}
+
+// HTML
+<i class="icon icon-home"></i>
+*/
+.icon-acceptHappy {
+  background-image: url(../assets/sprites/sprite1.png);
+  background-position: -225px -683px;
+  width: 143px;
+  height: 39px;
+}
+.icon-acitivityRulesText {
+  background-image: url(../assets/sprites/sprite1.png);
+  background-position: -286px -742px;
+  width: 142px;
+  height: 38px;
+}
+.icon-activityLogo {
+  background-image: url(../assets/sprites/sprite1.png);
+  background-position: 0px 0px;
+  width: 393px;
+  height: 105px;
+}
+.icon-arrowDown {
+  background-image: url(../assets/sprites/sprite1.png);
+  background-position: -852px -264px;
+  width: 25px;
+  height: 26px;
+}
+.icon-arrowDownPopup {
+  background-image: url(../assets/sprites/sprite1.png);
+  background-position: -852px -325px;
+  width: 30px;
+  height: 18px;
+}
+.icon-cardText01 {
+  background-image: url(../assets/sprites/sprite1.png);
+  background-position: -569px -280px;
+  width: 81px;
+  height: 99px;
+}
+.icon-cardText02 {
+  background-image: url(../assets/sprites/sprite1.png);
+  background-position: -650px -280px;
+  width: 81px;
+  height: 99px;
+}
+.icon-cardText03 {
+  background-image: url(../assets/sprites/sprite1.png);
+  background-position: -569px -379px;
+  width: 81px;
+  height: 99px;
+}
+.icon-cardText04 {
+  background-image: url(../assets/sprites/sprite1.png);
+  background-position: -650px -379px;
+  width: 81px;
+  height: 99px;
+}
+.icon-cardText05 {
+  background-image: url(../assets/sprites/sprite1.png);
+  background-position: 0px -544px;
+  width: 81px;
+  height: 99px;
+}
+.icon-cardText06 {
+  background-image: url(../assets/sprites/sprite1.png);
+  background-position: -81px -544px;
+  width: 81px;
+  height: 99px;
+}
+.icon-cardText07 {
+  background-image: url(../assets/sprites/sprite1.png);
+  background-position: -162px -544px;
+  width: 81px;
+  height: 99px;
+}
+.icon-catchTicket {
+  background-image: url(../assets/sprites/sprite1.png);
+  background-position: 0px -105px;
+  width: 314px;
+  height: 99px;
+}
+.icon-confirmPayment {
+  background-image: url(../assets/sprites/sprite1.png);
+  background-position: -447px -643px;
+  width: 143px;
+  height: 38px;
+}
+.icon-dayGot01 {
+  background-image: url(../assets/sprites/sprite1.png);
+  background-position: -243px -544px;
+  width: 81px;
+  height: 99px;
+}
+.icon-dayGot02 {
+  background-image: url(../assets/sprites/sprite1.png);
+  background-position: -324px -544px;
+  width: 81px;
+  height: 99px;
+}
+.icon-dayGot03 {
+  background-image: url(../assets/sprites/sprite1.png);
+  background-position: -405px -544px;
+  width: 81px;
+  height: 99px;
+}
+.icon-dayGot04 {
+  background-image: url(../assets/sprites/sprite1.png);
+  background-position: -486px -544px;
+  width: 81px;
+  height: 99px;
+}
+.icon-dayGot05 {
+  background-image: url(../assets/sprites/sprite1.png);
+  background-position: -567px -544px;
+  width: 81px;
+  height: 99px;
+}
+.icon-dayGot06 {
+  background-image: url(../assets/sprites/sprite1.png);
+  background-position: -648px -544px;
+  width: 81px;
+  height: 99px;
+}
+.icon-dayGot07 {
+  background-image: url(../assets/sprites/sprite1.png);
+  background-position: 0px -643px;
+  width: 81px;
+  height: 99px;
+}
+.icon-downloadAppText {
+  background-image: url(../assets/sprites/sprite1.png);
+  background-position: -273px -443px;
+  width: 248px;
+  height: 39px;
+}
+.icon-freeCatchVoucherX1 {
+  background-image: url(../assets/sprites/sprite1.png);
+  background-position: -793px -438px;
+  width: 33px;
+  height: 30px;
+}
+.icon-getAward {
+  background-image: url(../assets/sprites/sprite1.png);
+  background-position: -590px -643px;
+  width: 143px;
+  height: 38px;
+}
+.icon-getNowText {
+  background-image: url(../assets/sprites/sprite1.png);
+  background-position: -793px -390px;
+  width: 48px;
+  height: 48px;
+}
+.icon-giftShowBox {
+  background-image: url(../assets/sprites/sprite1.png);
+  background-position: -393px -153px;
+  width: 152px;
+  height: 131px;
+}
+.icon-go {
+  background-image: url(../assets/sprites/sprite1.png);
+  background-position: -569px 0px;
+  width: 190px;
+  height: 70px;
+}
+.icon-go2 {
+  background-image: url(../assets/sprites/sprite1.png);
+  background-position: -569px -70px;
+  width: 190px;
+  height: 70px;
+}
+.icon-gripper {
+  background-image: url(../assets/sprites/sprite1.png);
+  background-position: -759px 0px;
+  width: 34px;
+  height: 301px;
+}
+.icon-gripperLeft {
+  background-image: url(../assets/sprites/sprite1.png);
+  background-position: -793px -229px;
+  width: 59px;
+  height: 61px;
+}
+.icon-gripperRight {
+  background-image: url(../assets/sprites/sprite1.png);
+  background-position: -793px -290px;
+  width: 59px;
+  height: 61px;
+}
+.icon-icon1299 {
+  background-image: url(../assets/sprites/sprite1.png);
+  background-position: -569px -140px;
+  width: 155px;
+  height: 70px;
+}
+.icon-icon18 {
+  background-image: url(../assets/sprites/sprite1.png);
+  background-position: -393px -284px;
+  width: 100px;
+  height: 70px;
+}
+.icon-icon199 {
+  background-image: url(../assets/sprites/sprite1.png);
+  background-position: -569px -210px;
+  width: 155px;
+  height: 70px;
+}
+.icon-icon38 {
+  background-image: url(../assets/sprites/sprite1.png);
+  background-position: -442px -357px;
+  width: 100px;
+  height: 70px;
+}
+.icon-icon8 {
+  background-image: url(../assets/sprites/sprite1.png);
+  background-position: -793px 0px;
+  width: 100px;
+  height: 70px;
+}
+.icon-inputAddress {
+  background-image: url(../assets/sprites/sprite1.png);
+  background-position: -81px -683px;
+  width: 144px;
+  height: 39px;
+}
+.icon-popupCloseBtn {
+  background-image: url(../assets/sprites/sprite1.png);
+  background-position: -793px -153px;
+  width: 76px;
+  height: 76px;
+}
+.icon-popupTitileBox {
+  background-image: url(../assets/sprites/sprite1.png);
+  background-position: 0px -443px;
+  width: 273px;
+  height: 68px;
+}
+.icon-received {
+  background-image: url(../assets/sprites/sprite1.png);
+  background-position: 0px -204px;
+  width: 176px;
+  height: 153px;
+}
+.icon-receivedIcon {
+  background-image: url(../assets/sprites/sprite1.png);
+  background-position: -852px -229px;
+  width: 35px;
+  height: 35px;
+}
+.icon-receiveNot {
+  background-image: url(../assets/sprites/sprite1.png);
+  background-position: -176px -204px;
+  width: 176px;
+  height: 153px;
+}
+.icon-receiveNotIcon {
+  background-image: url(../assets/sprites/sprite1.png);
+  background-position: -852px -290px;
+  width: 35px;
+  height: 35px;
+}
+.icon-receiveWill {
+  background-image: url(../assets/sprites/sprite1.png);
+  background-position: -393px 0px;
+  width: 176px;
+  height: 153px;
+}
+.icon-rewardPreviewLock {
+  background-image: url(../assets/sprites/sprite1.png);
+  background-position: -841px -390px;
+  width: 28px;
+  height: 40px;
+}
+.icon-rewardPreviewText {
+  background-image: url(../assets/sprites/sprite1.png);
+  background-position: 0px -742px;
+  width: 143px;
+  height: 38px;
+}
+.icon-signSubmit {
+  background-image: url(../assets/sprites/sprite1.png);
+  background-position: -81px -643px;
+  width: 186px;
+  height: 40px;
+}
+.icon-statement {
+  background-image: url(../assets/sprites/sprite1.png);
+  background-position: 0px -511px;
+  width: 345px;
+  height: 33px;
+}
+.icon-submitText {
+  background-image: url(../assets/sprites/sprite1.png);
+  background-position: -143px -742px;
+  width: 143px;
+  height: 38px;
+}
+.icon-textBoxCoin {
+  background-image: url(../assets/sprites/sprite1.png);
+  background-position: 0px -357px;
+  width: 221px;
+  height: 86px;
+}
+.icon-textInKind {
+  background-image: url(../assets/sprites/sprite1.png);
+  background-position: -221px -357px;
+  width: 221px;
+  height: 86px;
+}
+.icon-toJoin {
+  background-image: url(../assets/sprites/sprite1.png);
+  background-position: -653px -683px;
+  width: 106px;
+  height: 39px;
+}
+.icon-topupIcon {
+  background-image: url(../assets/sprites/sprite1.png);
+  background-position: -368px -683px;
+  width: 143px;
+  height: 39px;
+}
+.icon-tryAgain {
+  background-image: url(../assets/sprites/sprite1.png);
+  background-position: -511px -683px;
+  width: 142px;
+  height: 39px;
+}
+.icon-type1_001 {
+  background-image: url(../assets/sprites/sprite1.png);
+  background-position: -793px -70px;
+  width: 81px;
+  height: 83px;
+}
+.icon-useCatchVoucher {
+  background-image: url(../assets/sprites/sprite1.png);
+  background-position: -267px -643px;
+  width: 180px;
+  height: 38px;
+}
+.icon-warehouseText {
+  background-image: url(../assets/sprites/sprite1.png);
+  background-position: -793px -351px;
+  width: 73px;
+  height: 39px;
+}
