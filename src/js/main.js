@@ -21,6 +21,7 @@ import {
     createGiftShowInKindTag,
     createGiftShowTag
 } from "./utils/createLiNodes"
+import wait from "./utils/wait"
 
 /**
  * 抓盒币、抓实物
@@ -40,10 +41,9 @@ const changeFetchSelection = (index) => {
         createAwardedMsgList(winners.inKind)
         choiceNumber(199)
         setConfigData('gameIcon', 199)
-        selectionBtnMask.style.left = ''
-        selectionBtnMask.style.right = '0px'
+        selectionBtnMask.className = 'selectionBtnMask selectionBtnMaskRight'
         machine.className = 'machine machinePurple'
-        boxIconBtnChecked.style.width = '1.785rem'
+        boxIconBtnChecked.className = 'mask maskInKind'
         for (let i = 0; i < boxIconBtns.length; i++) {
             boxIconBtns[i].style.display = 'none';
         }
@@ -62,10 +62,9 @@ const changeFetchSelection = (index) => {
         createAwardedMsgList(winners.icon)
         choiceNumber(8)
         setConfigData('gameIcon', 8)
-        selectionBtnMask.style.right = ''
-        selectionBtnMask.style.left = '0px'
+        selectionBtnMask.className = 'selectionBtnMask selectionBtnMaskLeft'
         machine.className = 'machine machineGreen'
-        boxIconBtnChecked.style.width = '1.155rem'
+        boxIconBtnChecked.className = 'mask maskIcon'
         for (let i = 0; i < boxIconBtns.length; i++) {
             boxIconBtns[i].style.display = 'inline-block';
         }
@@ -81,7 +80,11 @@ const changeFetchSelection = (index) => {
  * 下一页
  */
 const nextPage = () => {
-    $.fn.fullpage.moveSectionDown();
+    const deviceHeight = document.documentElement.clientHeight
+    const container = document.getElementById('container')
+    const sections = container.getElementsByClassName('section')
+    sections[0].scrollTop = sections[0].scrollHeight
+    container.style.transform = `translate3d(0px, ${-deviceHeight}px, 0px)`
 }
 
 /**
@@ -346,78 +349,81 @@ const grabAnimation = () => {
     const gripperHand = document.getElementsByClassName('gripperHand')[0]
     const handLeft = document.getElementsByClassName('handLeft')[0]
     const handRight = document.getElementsByClassName('handRight')[0]
-    new Promise((resolve) => {
-        let direction = 1 // 摆动方向
-        let deg = 0 // 摆动角度
-        const timerSwing = setInterval(() => {
-            deg += 0.6 * direction
-            gripperBox.style.transform = `rotate(${deg}deg)`
-            if (Math.abs(deg) >= 7.5) { // 摆动最大角度7.5deg
-                direction = deg < 0 ? 1 : -1
-            }
-        }, 50)
-        setTimeout(() => { // 预留爪子左右摆动时间
-            const timerListen = setInterval(() => { // 爪子摆动完之后开始监听抓取
+    const deviceWidth = getConfigData('deviceWidth')
+
+    // 爪子晃动及其监听抓中盒子逻辑
+    const beforeGrab = () => {
+        return new Promise(async resolve => {
+            let direction = 1 // 摆动方向
+            let deg = 0 // 摆动角度
+            const timerSwing = setInterval(() => {
+                deg += 0.6 * direction
+                gripperBox.style.transform = `rotate(${deg}deg)`
+                if (Math.abs(deg) >= 7.5) { // 摆动最大角度7.5deg
+                    direction = deg < 0 ? 1 : -1
+                }
+            }, 50)
+            await wait(2400)
+            const timerListen = setInterval(async () => { // 爪子摆动完之后开始监听抓取
                 const left = document.getElementsByClassName(getConfigData('giftLiclassName'))[0].getBoundingClientRect().left
-                if (left <= -29 && left >= -34) { // 当检测到到达某个区间时表示可以刚好抓到盒子
+                const leftInterval = -29 * deviceWidth / 750 // -29为iphone6分辨率刚好抓中左边距
+                if (left <= leftInterval && left >= leftInterval - 5) { // 当检测到到达某个区间时表示可以刚好抓到盒子，区间为:[leftInterval - 5, leftInterval]
                     // console.log(left)
                     clearInterval(timerSwing) // 爪子停止摆动
                     clearInterval(timerListen) // 停止监听抓取
                     gripperBox.style.transition = 'transform 0.2s linear'
                     gripperBox.style.transform = 'rotate(0)' // 爪子角度0
-                    setTimeout(() => { // 此定时器使爪子摆正
-                        resolve()
-                        gripperBox.style.transition = 'all 0s linear'
-                    }, 200)
-                    // 张开爪子
-                    handLeft.style.transform = 'rotate(17deg)'
+                    handLeft.style.transform = 'rotate(17deg)' // 张开爪子
                     handRight.style.transform = 'rotate(-17deg)'
+                    await wait(200) // 此定时器使爪子摆正
+                    resolve()
                 }
             }, 20);
-        }, 2400)
-    }).then(() => {
-        gripperHand.style.transform = 'translate3d(0px, 2.15rem, 0px)' // 爪子下落
-        setTimeout(() => { // 稍等片刻后合闭爪子
+        })
+    }
+
+    // 抓取逻辑
+    const grab = () => {
+        const rand = Math.random() // 生成抓取随机数
+        const getOrder = 4
+        const giftShows = document.getElementsByClassName(getConfigData('giftLiclassName'))
+        const temp = giftShows[getOrder] // 暂存抓中节点，用于隐藏和显示操作
+        const clone = giftShows[getOrder].cloneNode(true) // 复制一份抓中节点到爪子上
+        return new Promise(async resolve => {
+            gripperHand.style.transform = 'translate3d(0px, 2.12rem, 0px)' // 爪子下落
+            await wait(1100) // 稍等片刻后合闭爪子
             handLeft.style.transform = 'rotate(0deg)'
             handRight.style.transform = 'rotate(0deg)'
-        }, 1100)
-        setTimeout(() => { // 下落过程
-            const giftShows = document.getElementsByClassName(getConfigData('giftLiclassName'))
-            const temp = giftShows[2] // 暂存抓中节点，用于隐藏和显示操作
-            const clone = giftShows[2].cloneNode(true) // 复制一份抓中节点到爪子上
+            await wait(270) // 抓取过程
+            temp.classList.add('hidden') // 隐藏轨道上被抓住的盒子
             gripperHand.appendChild(clone)
-            temp.style.opacity = '0' // 隐藏轨道上被抓住的盒子
             gripperHand.style.transition = 'transform 0.6s ease-in'
             gripperHand.style.transform = 'translate3d(0px, 0px, 0px)' // 爪子回到原来位置
-            const rand = Math.random() // 生成抓取随机数
             console.log("%c%s", "color: #fff; background: #20B2AA; font-size: 12px;", `当前概率: ${rand}, 抓中概率: ${temp.chance}, 是否抓中: ${rand < temp.chance}`);
             if (rand >= temp.chance) { // 未抓中
-                dropAnimation(clone)
-                setTimeout(() => {
-                    openPopup('grabFailure') // 抓取失败弹窗
-                    gripperHand.style.transition = 'transform 1.5s linear'
-                    temp.style.opacity = '1'
-                    gripperHand.lastChild.remove()
-                }, 900)
+                await wait(400)
+                clone.style.transform = 'translate3d(0px, 5.5rem, 0px)' // 爪子掉落
+                await wait(900)
+                openPopup('grabFailure') // 抓取失败弹窗
+                temp.classList.remove('hidden')
+                gripperHand.style.transition = 'transform 1.5s linear'
+                gripperHand.lastChild.remove()
+                resolve()
             } else { // 抓中
-                setTimeout(() => {
-                    openPopup('acceptHappy', temp.firstChild.innerText) // 开启抓取成功弹窗
-                    gripperHand.style.transitionDuration = '1.5s'
-                    temp.style.opacity = '1'
-                    gripperHand.lastChild.remove()
-                }, 700)
+                await wait(700)
+                openPopup('acceptHappy', temp.firstChild.innerText) // 开启抓取成功弹窗
+                temp.classList.remove('hidden')
+                gripperHand.style.transitionDuration = '1.5s'
+                gripperHand.lastChild.remove()
+                resolve()
             }
-        }, 1370)
-    })
-}
+        })
+    }
 
-/**
- * 掉落动画
- */
-const dropAnimation = (element) => {
-    setTimeout(() => {
-        element.style.transform = 'translate3d(0px, 5.5rem, 0px)'
-    }, 400)
+    (async function () {
+        await beforeGrab() // 抓取前，晃动爪子，监听抓去的盒子
+        grab() // 抓取，停止晃动，张开爪子，爪子下落，爪子合拢。。。
+    })()
 }
 
 export {

@@ -17,7 +17,7 @@ module.exports = {
         filename: 'bundle-[hash:8].js'
     },
     devServer: {
-        host: 'localhost',
+        host: '0.0.0.0',
         port: 3000,
         hot: true,
         overlay: true,
@@ -113,17 +113,17 @@ module.exports = {
         new SpritesmithPlugin({
             // 目标小图标，这里就是你要生成的图片的目录
             src: {
-                cwd: path.resolve(__dirname, './src/assets/icon'),
+                cwd: path.resolve(__dirname, './src/assets/icon3'),
                 glob: '*.png'
             },
             // 输出雪碧图文件及样式文件，这个是打包后，自动生成的雪碧图和样式，自己配置想生成去哪里就去哪里
             target: {
-                image: path.resolve(__dirname, './src/assets/sprites/sprite1.png'),
-                css: path.resolve(__dirname, './src/assets/sprites/sprite1.css')
+                image: path.resolve(__dirname, './src/assets/sprites/sprite3.png'),
+                css: path.resolve(__dirname, './src/assets/sprites/sprite3.css')
             },
             // 样式文件中调用雪碧图地址写法
             apiOptions: {
-                cssImageRef: '../assets/sprites/sprite1.png'
+                cssImageRef: '../assets/sprites/sprite3.png'
             },
             spritesmithOptions: {
                 // algorithm: 't'

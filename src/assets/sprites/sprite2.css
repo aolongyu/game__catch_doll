@@ -1,0 +1,60 @@
+/*
+Icon classes can be used entirely standalone. They are named after their original file names.
+
+Example usage in HTML:
+
+`display: block` sprite:
+<div class="icon-home"></div>
+
+To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+
+// CSS
+.icon {
+  display: inline-block;
+}
+
+// HTML
+<i class="icon icon-home"></i>
+*/
+.icon-activityBox01 {
+  background-image: url(../assets/sprites/sprite2.png);
+  background-position: -704px 0px;
+  width: 704px;
+  height: 416px;
+}
+.icon-activityBox02 {
+  background-image: url(../assets/sprites/sprite2.png);
+  background-position: 0px 0px;
+  width: 704px;
+  height: 425px;
+}
+.icon-activityTitle01 {
+  background-image: url(../assets/sprites/sprite2.png);
+  background-position: -750px -834px;
+  width: 584px;
+  height: 117px;
+}
+.icon-activityTitle02 {
+  background-image: url(../assets/sprites/sprite2.png);
+  background-position: -750px -716px;
+  width: 584px;
+  height: 118px;
+}
+.icon-logo {
+  background-image: url(../assets/sprites/sprite2.png);
+  background-position: -750px -425px;
+  width: 618px;
+  height: 238px;
+}
+.icon-occludeGreen {
+  background-image: url(../assets/sprites/sprite2.png);
+  background-position: 0px -425px;
+  width: 750px;
+  height: 291px;
+}
+.icon-occludePurple {
+  background-image: url(../assets/sprites/sprite2.png);
+  background-position: 0px -716px;
+  width: 750px;
+  height: 291px;
+}

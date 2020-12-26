@@ -6,15 +6,14 @@
  */
 const createGiftShowTag = (className, data, giftImg) => {
     const giftLine = document.getElementsByClassName('giftLine')[0]
-    giftLine.style.left = '7.5rem'
     giftLine.innerHTML = ''
     for (let i = 0; i < data.length; i++) {
-        let liNode = document.createElement('li')
+        const liNode = document.createElement('li')
         liNode.className = className
-        let iNode = document.createElement('img')
+        const iNode = document.createElement('img')
         iNode.className = 'giftImg'
         iNode.src = giftImg[data[i].id]
-        let spanNode = document.createElement('span')
+        const spanNode = document.createElement('span')
         spanNode.innerText = data[i].name
         liNode.appendChild(spanNode)
         liNode.appendChild(iNode)
@@ -31,14 +30,14 @@ const createGiftShowTag = (className, data, giftImg) => {
  */
 const createGiftShowInKindTag = (className, data, giftImg) => {
     const giftLine = document.getElementsByClassName('giftLine')[0]
-    giftLine.style.left = '7.5rem'
     giftLine.innerHTML = ''
     for (let i = 0; i < data.length; i++) {
-        let liNode = document.createElement('li')
+        const liNode = document.createElement('li')
         liNode.className = className
-        let iNode = document.createElement('img')
+        const iNode = document.createElement('img')
+        iNode.className = 'giftImg'
         iNode.src = giftImg[data[i].id]
-        let spanNode = document.createElement('span')
+        const spanNode = document.createElement('span')
         spanNode.classList.add('text')
         spanNode.innerText = data[i].name
         liNode.appendChild(spanNode)

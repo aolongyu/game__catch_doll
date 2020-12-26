@@ -30,8 +30,9 @@
             height: 238px;
             margin-top: 17px;
             margin-right: 51px;
-            background: url(../assets/img/logo.png) no-repeat;
-            background-size: 618px 238px;
+            background-image: url(../assets/sprites/sprite2.png);
+            background-position: -750px -425px;
+            background-size: 1408px 1007px;
         }
 
         .rightTag {
@@ -100,6 +101,7 @@
         margin: 0 auto;
         margin-top: 131px;
         z-index: 9;
+        font-size: 0;
 
         .selectionBtn {
             width: 221px;
@@ -113,6 +115,7 @@
         }
 
         .inKind {
+            margin-left: 27px;
             background-image: url(../assets/sprites/sprite1.png);
             background-position: -221px -357px;
             background-size: 893px 780px;
@@ -125,6 +128,14 @@
             height: 86px;
             background-color: rgba(0, 0, 0, .3);
             border-radius: 28px;
+        }
+
+        .selectionBtnMaskLeft {
+            left: 0;
+        }
+
+        .selectionBtnMaskRight {
+            right: 0;
         }
     }
 
@@ -143,12 +154,11 @@
             transition: transform 1.5s linear;
 
             .gripper {
-                display: block;
                 position: relative;
                 width: 34px;
                 height: 301px;
-                margin-top: -200px;
-                margin-left: 361px;
+                margin-top: -203px;
+                margin-left: 359px;
                 background-image: url(../assets/sprites/sprite1.png);
                 background-position: -759px 0px;
                 background-size: 893px 780px;
@@ -158,7 +168,7 @@
 
             .hands {
                 display: inline-block;
-                width: 59px;
+                width: 58px;
                 height: 61px;
                 margin-top: -15px;
                 transition: transform .2s linear;
@@ -192,9 +202,9 @@
                 background-size: 893px 780px;
                 font-size: 22px;
                 transition: transform .5s ease-in;
+                transform: translateX(0.0045rem);
 
                 .giftImg {
-                    display: inline-block;
                     width: 81px;
                     height: 83px;
                     margin-top: 28px;
@@ -239,9 +249,10 @@
                     white-space: nowrap;
                 }
 
-                img {
+                .giftImg {
                     width: 152px;
                     height: 168px;
+                    margin-top: -20px;
                 }
             }
         }
@@ -252,13 +263,12 @@
         z-index: 6;
         width: 750px;
         height: 291px;
-        margin-top: 152px;
+        margin-top: 166px;
         overflow: hidden;
         font-size: 0;
 
         .giftLine {
             position: absolute;
-            left: 750px;
             bottom: 45px;
             white-space: nowrap;
             font-size: 0;
@@ -276,9 +286,9 @@
                 background-position: -393px -153px;
                 background-size: 893px 780px;
                 font-size: 22px;
+                opacity: 1;
 
                 .giftImg {
-                    display: inline-block;
                     width: 81px;
                     height: 83px;
                     margin-top: 28px;
@@ -301,6 +311,7 @@
                 padding: auto 10px;
                 background-size: 152px 168px;
                 font-size: 22px;
+                opacity: 1;
 
                 .text {
                     position: absolute;
@@ -319,20 +330,21 @@
                     text-overflow: ellipsis;
                     white-space: nowrap;
                 }
+
+                .giftImg {
+                    width: 152px;
+                    height: 168px;
+                }
             }
 
-            .giftNone {
-                display: inline-block;
-                vertical-align: bottom;
-                width: 152px;
-                height: 131px;
+            .hidden {
+                opacity: 0;
             }
         }
     }
 
     .machineMask {
         position: relative;
-        display: block;
         width: 750px;
         height: 291px;
         margin-top: -291px;
@@ -340,13 +352,15 @@
     }
 
     .machineMaskGreen {
-        background: url(../assets/img/occludeGreen.png) no-repeat;
-        background-size: 750px 291px;
+        background-image: url(../assets/sprites/sprite2.png);
+        background-position: 0px -425px;
+        background-size: 1408px 1007px;
     }
 
     .machineMaskPurple {
-        background: url(../assets/img/occludePurple.png) no-repeat;
-        background-size: 750px 291px;
+        background-image: url(../assets/sprites/sprite2.png);
+        background-position: 0px -716px;
+        background-size: 1408px 1007px;
     }
 
     .choiceNumber {
@@ -365,6 +379,7 @@
         }
 
         .boxIcon8 {
+            margin-left: 5px;
             background-image: url(../assets/sprites/sprite1.png);
             background-position: -793px 0px;
             background-size: 893px 780px;
@@ -391,12 +406,14 @@
         }
 
         .boxIcon199 {
+            margin-left: 10px;
             background-image: url(../assets/sprites/sprite1.png);
             background-position: -569px -210px;
             background-size: 893px 780px;
         }
 
         .boxIcon1299 {
+            margin-right: 10px;
             background-image: url(../assets/sprites/sprite1.png);
             background-position: -569px -140px;
             background-size: 893px 780px;
@@ -421,6 +438,14 @@
             border-radius: 17px;
             background-color: rgba(0, 0, 0, .3);
             transform: skewX(-4deg);
+        }
+
+        .maskIcon {
+            width: 115.5px;
+        }
+
+        .maskInKind {
+            width: 178.5px
         }
 
         .mask8 {
@@ -458,7 +483,6 @@
         margin-top: 124px;
 
         .stamps {
-            display: block;
             font-size: 24px;
             color: rgb(233, 251, 247);
         }
@@ -491,7 +515,6 @@
         font-size: 0;
 
         .activityTitle {
-            display: block;
             width: 393px;
             height: 105px;
             margin: 0 auto;
@@ -512,29 +535,31 @@
 
         .activityBox {
             width: 704px;
-            height: 464px;
-            margin-top: -6px;
+            height: 416px;
 
             .activityBoxTitle {
                 display: inline-block;
                 width: 584px;
                 height: 117px;
+                margin-top: -48px;
                 margin-right: 11px;
+                background-size: 1408px 1007px;
             }
         }
 
         .activityBox01 {
-            background: url(../assets/img/activityBox01.png) no-repeat;
-            background-size: 704px 416px;
-            background-position-y: 48px;
+            margin-top: 42px;
+            background-image: url(../assets/sprites/sprite2.png);
+            background-position: -704px 0px;
+            background-size: 1408px 1007px;
+
 
             .activityBoxTitle {
-                background: url(../assets/img/activityTitle01.png) no-repeat;
-                background-size: 584px 117px;
+                background-image: url(../assets/sprites/sprite2.png);
+                background-position: -750px -834px;
             }
 
             .grabNumber {
-                display: block;
                 width: 252px;
                 height: 46px;
                 margin: 0 auto;
@@ -661,14 +686,14 @@
         }
 
         .activityBox02 {
-            margin-top: 2px;
-            background: url(../assets/img/activityBox02.png) no-repeat;
-            background-size: 704px 425px;
-            background-position-y: 48px;
+            margin-top: 52px;
+            background-image: url(../assets/sprites/sprite2.png);
+            background-position: 0px 0px;
+            background-size: 1408px 1007px;
 
             .activityBoxTitle {
-                background: url(../assets/img/activityTitle02.png) no-repeat;
-                background-size: 584px 117px;
+                background-image: url(../assets/sprites/sprite2.png);
+                background-position: -750px -716px;
             }
 
             .signCard {
@@ -844,8 +869,6 @@
 }
 
 .popup {
-    /*display: none;*/
-
     position: fixed;
     top: 0;
     left: 0;
@@ -853,6 +876,7 @@
     height: 100%;
     background-color: rgba(0, 0, 0, .8);
     text-align: center;
+    z-index: 9999;
 
     .popupBox {
         position: relative;
@@ -872,9 +896,9 @@
         .popupCloseBtn {
             position: absolute;
             top: 13px;
-            right: 18px;
-            width: 90px;
-            height: 90px;
+            right: 32px;
+            width: 76px;
+            height: 76px;
             background-image: url(../assets/sprites/sprite1.png);
             background-position: -793px -153px;
             background-size: 893px 780px;
@@ -886,8 +910,9 @@
         display: none;
         width: 666px;
         height: 775px;
-        background: url(../assets/img/popupActivityRules.png) no-repeat;
-        background-size: 666px 775px;
+        background-image: url(../assets/sprites/sprite3.png);
+        background-position: -1330px 0px;
+        background-size: 2661px 1531px;
 
         .titleBox {
             .titleText {
@@ -924,8 +949,9 @@
         display: none;
         width: 666px;
         height: 626px;
-        background: url(../assets/img/popupRewardPreview.png) no-repeat;
-        background-size: 666px 626px;
+        background-image: url(../assets/sprites/sprite3.png);
+        background-position: 0px -905px;
+        background-size: 2661px 1531px;
 
         .titleBox {
             .titleText {
@@ -1044,8 +1070,9 @@
         display: none;
         width: 665px;
         height: 905px;
-        background: url(../assets/img/popupWarehouse.png) no-repeat;
-        background-size: 665px 905px;
+        background-image: url(../assets/sprites/sprite3.png);
+        background-position: 0px 0px;
+        background-size: 2661px 1531px;
 
         .titleBox {
             .titleText {
@@ -1145,8 +1172,9 @@
         display: none;
         width: 665px;
         height: 824px;
-        background: url(../assets/img/popupInputUserInfo.png) no-repeat;
-        background-size: 665px 824px;
+        background-image: url(../assets/sprites/sprite3.png);
+        background-position: -665px 0px;
+        background-size: 2661px 1531px;
 
         .titleBox {
             .titleText {
@@ -1242,8 +1270,9 @@
         display: none;
         width: 665px;
         height: 594px;
-        background: url(../assets/img/popupInputQQ.png) no-repeat;
-        background-size: 665px 594px;
+        background-image: url(../assets/sprites/sprite3.png);
+        background-position: -665px -905px;
+        background-size: 2661px 1531px;
 
         .titleBox {
             .titleText {
@@ -1323,9 +1352,9 @@
         .popupCloseBtn {
             position: absolute;
             top: -90px;
-            right: 18px;
-            width: 90px;
-            height: 90px;
+            right: 32px;
+            width: 76px;
+            height: 76px;
             background-image: url(../assets/sprites/sprite1.png);
             background-position: -793px -153px;
             background-size: 893px 780px;
@@ -1570,7 +1599,6 @@
             }
 
             .intro {
-                display: block;
                 margin-top: 44px;
                 color: #fff154;
                 font-size: 28px;
@@ -1602,8 +1630,9 @@
                 height: 182px;
                 margin-top: 15px;
                 margin-bottom: 15px;
-                background: url(../assets/img/appLogo.png) no-repeat;
-                background-size: 182px 182px;
+                background-image: url(../assets/sprites/sprite3.png);
+                background-position: -1996px -904px;
+                background-size: 2661px 1531px;
             }
 
             .downloadAppBtn {
@@ -1630,26 +1659,26 @@
             display: none;
             width: 665px;
             height: 412px;
-            background: url(../assets/img/popupSmallBox.png);
-            background-size: 665px 412px;
+            background-image: url(../assets/sprites/sprite3.png);
+            background-position: -1996px -492px;
+            background-size: 2661px 1531px;
         }
 
         .middleBox {
-            /*
-               // display: none;         */
-
             width: 665px;
             height: 492px;
-            background: url(../assets/img/popupMiddleBox.png);
-            background-size: 665px 492px;
+            background-image: url(../assets/sprites/sprite3.png);
+            background-position: -1996px 0px;
+            background-size: 2661px 1531px;
         }
 
         .largeBox {
             display: none;
             width: 665px;
             height: 592px;
-            background: url(../assets/img/popupLargeBox.png);
-            background-size: 665px 592px;
+            background-image: url(../assets/sprites/sprite3.png);
+            background-position: -1330px -905px;
+            background-size: 2661px 1531px;
         }
     }
 }

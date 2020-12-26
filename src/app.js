@@ -2,15 +2,13 @@
 import './global.less'
 // (less)局部样式
 import './less/styles.less'
-// (css)fullPage样式
-import './less/jquery.fullPage.css'
 
 // (js)fontSize设定
 import './js/utils/pageConfig'
-import './js/utils/requestAnimationFrame.js'
+import './js/utils/requestAnimationFrame'
 
-// (js)fullpage
-import './js/utils/fullPage'
+// (js)一屏滚动
+import './js/utils/scrollScreen'
 // (js)初始化页面自定义函数自调用
 import initPage from './js/utils/initPage'
 // (js)礼品滚动函数封装

@@ -1,0 +1,72 @@
+/*
+Icon classes can be used entirely standalone. They are named after their original file names.
+
+Example usage in HTML:
+
+`display: block` sprite:
+<div class="icon-home"></div>
+
+To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+
+// CSS
+.icon {
+  display: inline-block;
+}
+
+// HTML
+<i class="icon icon-home"></i>
+*/
+.icon-appLogo {
+  background-image: url(../assets/sprites/sprite3.png);
+  background-position: -1996px -904px;
+  width: 182px;
+  height: 182px;
+}
+.icon-popupActivityRules {
+  background-image: url(../assets/sprites/sprite3.png);
+  background-position: -1330px 0px;
+  width: 666px;
+  height: 775px;
+}
+.icon-popupInputQQ {
+  background-image: url(../assets/sprites/sprite3.png);
+  background-position: -665px -905px;
+  width: 665px;
+  height: 594px;
+}
+.icon-popupInputUserInfo {
+  background-image: url(../assets/sprites/sprite3.png);
+  background-position: -665px 0px;
+  width: 665px;
+  height: 824px;
+}
+.icon-popupLargeBox {
+  background-image: url(../assets/sprites/sprite3.png);
+  background-position: -1330px -905px;
+  width: 665px;
+  height: 592px;
+}
+.icon-popupMiddleBox {
+  background-image: url(../assets/sprites/sprite3.png);
+  background-position: -1996px 0px;
+  width: 665px;
+  height: 492px;
+}
+.icon-popupRewardPreview {
+  background-image: url(../assets/sprites/sprite3.png);
+  background-position: 0px -905px;
+  width: 665px;
+  height: 626px;
+}
+.icon-popupSmallBox {
+  background-image: url(../assets/sprites/sprite3.png);
+  background-position: -1996px -492px;
+  width: 665px;
+  height: 412px;
+}
+.icon-popupWarehouse {
+  background-image: url(../assets/sprites/sprite3.png);
+  background-position: 0px 0px;
+  width: 665px;
+  height: 905px;
+}

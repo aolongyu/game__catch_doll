@@ -3,17 +3,23 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=0.5, maximum-scale=0.5, minimum-scale=0.5">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=0.5, maximum-scale=0.5, minimum-scale=0.5">
     <title>魔力抓抓机</title>
+    <script>
+        (function () {
+            var rootHtml = document.documentElement
+            var deviceWidth = rootHtml.clientWidth
+            rootHtml.style.fontSize = deviceWidth / 7.5 + "px"
+        })()
+    </script>
 </head>
 
 <body>
-    <div id="fullpage" class="container">
+    <div id="container" class="container">
         <div class="section active">
             <div class="machine machineGreen">
                 <header class="header">
-                    <i class="logo"></i>
+                    <div class="logo"></div>
                     <div class="rightTag">
                         <button class="tag tagRule">活动规则</button>
                         <button class="tag tagWareHouse">仓库</button>
@@ -34,7 +40,7 @@
                 </div>
                 <div class="gripperBox">
                     <div class="gripperHand">
-                        <i class="gripper"></i>
+                        <div class="gripper"></div>
                         <i class="hands handLeft"></i>
                         <i class="hands handRight"></i>
                     </div>
@@ -46,7 +52,7 @@
                         <!-- <li class="giftShowInKind"><span class="text">熊猫头充电宝</span></li>-->
                     </ul>
                 </div>
-                <i class="machineMask machineMaskGreen"></i>
+                <div class="machineMask machineMaskGreen"></div>
                 <div class="choiceNumber">
                     <button class="boxIconBtn boxIcon8"></button>
                     <button class="boxIconBtn boxIcon18"></button>
@@ -58,7 +64,7 @@
                 </div>
 
                 <div class="myStamps">
-                    <span class="stamps">我的抓抓券 : 66</span>
+                    <div class="stamps">我的抓抓券 : 0</div>
                     <button class="freeStamps"><i class="getNowText"></i></button>
                 </div>
             </div>
@@ -66,11 +72,11 @@
 
         <div class="section">
             <div class="activity">
-                <i class="activityTitle"></i>
+                <div class="activityTitle"></div>
                 <i class="arrowDown"></i>
                 <div class="activityBox activityBox01">
                     <i class="activityBoxTitle"></i>
-                    <span class="grabNumber">本周已抓次数 : <span class="number">0</span></span>
+                    <div class="grabNumber">本周已抓次数 : <span class="number">0</span></div>
                     <div class="achievementAward">
                         <div class="package">
                             <i class="packageAll packageReceiveNot"></i>
@@ -250,7 +256,8 @@
                         class="specialText">小天才电话手表</span></p>
                 <div class="btn">
                     <button id="popupPromptBtn01" class="promptBtn confirmPayment"><i class="btnText"></i></button>
-                    <button id="popupPromptBtn02" class="promptBtn confirmPayment confirmPayment2"><i class="btnText"></i></button>
+                    <button id="popupPromptBtn02" class="promptBtn confirmPayment confirmPayment2"><i
+                            class="btnText"></i></button>
                     <button id="popupPromptBtn03" class="promptBtn useCatchVoucher"><i class="btnText"></i></button>
                     <button id="popupPromptBtn04" class="promptBtn toJoin"><i class="btnText"></i></button>
                     <button id="popupPromptBtn05" class="promptBtn acceptHappy"><i class="btnText"></i></button>
@@ -274,7 +281,7 @@
                     <span class="title">高级场</span>
                     <span class="message">每开始一次支付<span class="specialText">38盒币</span></span>
                 </div>
-                <p class="intro">新增抓实物模块，中奖概率<span class="specialText">100%</span>哦</p>
+                <div class="intro">新增抓实物模块，中奖概率<span class="specialText">100%</span>哦</div>
             </div>
 
             <div class="levelBox smallBox">
@@ -286,7 +293,7 @@
                     <span class="title">高级场</span>
                     <span class="message">每开始一次支付<span class="specialText">1299盒币</span></span>
                 </div>
-                <p class="intro">新增抓实物模块，中奖概率<span class="specialText">100%</span>哦</p>
+                <div class="intro">新增抓实物模块，中奖概率<span class="specialText">100%</span>哦</div>
             </div>
 
             <div class="largeBox">
@@ -301,10 +308,6 @@
             </div>
         </div>
     </div>
-
-    <script src="https://libs.baidu.com/jquery/2.1.1/jquery.min.js"></script>
-    <script src="http://cdn.bootcss.com/jQuery-slimScroll/1.3.6/jquery.slimscroll.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.5.6/jquery.fullPage.js"></script>
 </body>
 
 </html>

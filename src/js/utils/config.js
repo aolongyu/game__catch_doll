@@ -1,4 +1,6 @@
 const configData = {
+    fontSize: 100,
+    deviceWidth: 750,
     gameIcon: 8,
     giftLiclassName: 'giftShowTag1',
     showInKindPopup: false,

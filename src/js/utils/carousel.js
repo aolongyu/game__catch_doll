@@ -1,34 +1,31 @@
 import getStyle from './getStyle'
+import wait from './wait'
 
 const carousel = (ul, speed, delay) => {
-  let liHeight = 0;
+  let liTemp = ul.lastChild
+  let liHeight = getStyle(liTemp, 'height')
   let offset = 0
-  let top = ul.getElementsByClassName('scrollLi')[0].getBoundingClientRect().top
   let flag = true
 
-  function run() {
+  const run = async () => {
     let li = ul.getElementsByClassName('scrollLi')[0]
-    liHeight = getStyle(li, 'height')
     offset -= speed
     ul.style.transform = `translate3d(-50%, ${offset}px, 0px)`
-    if (li.getBoundingClientRect().top - top <= -liHeight) {
+    if (offset <= -liHeight) {
       ul.appendChild(li)
-      ul.style.transform = `translate3d(-50%, 0px, 0px)`
+      ul.style.transform = 'translate3d(-50%, 0px, 0px)'
       offset = 0
       // 暂停delay
       flag = false
-      setTimeout(() => {
-        flag = true
-        animloop()
-      }, delay)
+      await wait(delay)
+      flag = true
+      animloop()
     }
   }
 
   function animloop() {
     run();
-    if (flag) {
-      window.requestAnimationFrame(animloop)
-    }
+    flag && window.requestAnimationFrame(animloop)
   }
 
   animloop()
