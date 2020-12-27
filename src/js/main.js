@@ -28,22 +28,21 @@ import wait from "./utils/wait"
  * @param {number} index 0:抓盒币、1:抓实物
  */
 const changeFetchSelection = (index) => {
-    const selectionBtnMask = document.getElementsByClassName('selectionBtnMask')[0]
     const machine = document.getElementsByClassName('machine')[0]
     const machineMask = document.getElementsByClassName('machineMask')[0]
     const boxIconBtnInKinds = document.getElementsByClassName('boxIconBtnInKind')
     const boxIconBtns = document.getElementsByClassName('boxIconBtn')
-    // 选中按钮遮罩层
-    const boxIconBtnChecked = document.getElementsByClassName('mask')[0]
-    boxIconBtnChecked.className = 'mask'
+    const selectionBtns = document.getElementsByClassName('selectionBtn')
+    const goBtn = document.getElementsByClassName('goBtn')[0]
     if (index) { // 抓实物
         setConfigData('giftLiclassName', 'giftShowInKindTag1')
         createAwardedMsgList(winners.inKind)
         choiceNumber(199)
         setConfigData('gameIcon', 199)
-        selectionBtnMask.className = 'selectionBtnMask selectionBtnMaskRight'
+        goBtn.className = 'goBtn goBtn2'
         machine.className = 'machine machinePurple'
-        boxIconBtnChecked.className = 'mask maskInKind'
+        selectionBtns[0].classList.remove('active')
+        selectionBtns[1].classList.add('active')
         for (let i = 0; i < boxIconBtns.length; i++) {
             boxIconBtns[i].style.display = 'none';
         }
@@ -62,9 +61,10 @@ const changeFetchSelection = (index) => {
         createAwardedMsgList(winners.icon)
         choiceNumber(8)
         setConfigData('gameIcon', 8)
-        selectionBtnMask.className = 'selectionBtnMask selectionBtnMaskLeft'
+        goBtn.className = 'goBtn goBtn1'
         machine.className = 'machine machineGreen'
-        boxIconBtnChecked.className = 'mask maskIcon'
+        selectionBtns[1].classList.remove('active')
+        selectionBtns[0].classList.add('active')
         for (let i = 0; i < boxIconBtns.length; i++) {
             boxIconBtns[i].style.display = 'inline-block';
         }
@@ -307,30 +307,37 @@ const choiceNumber = (iconNum) => {
     }
     console.log(`投币数${iconNum}`)
     setConfigData('gameIcon', iconNum)
-    const boxIconBtnChecked = document.getElementsByClassName('mask')[0]
+    const boxIconBtns = document.getElementsByClassName('boxIconBtn')
+    const boxIconBtnInKinds = document.getElementsByClassName('boxIconBtnInKind')
+    for(let i = 0; i < boxIconBtns.length; i++) {
+        boxIconBtns[i].classList.remove('activeIcon')
+    }
+    for(let i = 0; i < boxIconBtnInKinds.length; i++) {
+        boxIconBtnInKinds[i].classList.remove('activeInKind')
+    }
     switch (iconNum) {
         case 8:
-            boxIconBtnChecked.className = 'mask mask8' // 按钮遮罩
+            boxIconBtns[0].classList.add('activeIcon')
             setConfigData('giftLiclassName', 'giftShowTag1') // 配置当前数据
             createGiftShowTag('giftShowTag1 giftShow', iconGifts.type1, giftImg) // 生成li列表
             break;
         case 18:
-            boxIconBtnChecked.className = 'mask mask18'
+            boxIconBtns[1].classList.add('activeIcon')
             setConfigData('giftLiclassName', 'giftShowTag2')
             createGiftShowTag('giftShowTag2 giftShow', iconGifts.type2, giftImg)
             break;
         case 38:
-            boxIconBtnChecked.className = 'mask mask38'
+            boxIconBtns[2].classList.add('activeIcon')
             setConfigData('giftLiclassName', 'giftShowTag3')
             createGiftShowTag('giftShowTag3 giftShow', iconGifts.type3, giftImg)
             break;
         case 199:
-            boxIconBtnChecked.className = 'mask mask199'
+            boxIconBtnInKinds[0].classList.add('activeInKind')
             setConfigData('giftLiclassName', 'giftShowInKindTag1')
             createGiftShowInKindTag('giftShowInKindTag1 giftShowInKind', inKindGifts.type1, giftImg)
             break;
         case 1299:
-            boxIconBtnChecked.className = 'mask mask1299'
+            boxIconBtnInKinds[1].classList.add('activeInKind')
             setConfigData('giftLiclassName', 'giftShowInKindTag2')
             createGiftShowInKindTag('giftShowInKindTag2 giftShowInKind', inKindGifts.type2, giftImg)
             break;
@@ -346,7 +353,6 @@ const choiceNumber = (iconNum) => {
  */
 const grabAnimation = () => {
     const gripperBox = document.getElementsByClassName('gripperBox')[0]
-    const gripperHand = document.getElementsByClassName('gripperHand')[0]
     const handLeft = document.getElementsByClassName('handLeft')[0]
     const handRight = document.getElementsByClassName('handRight')[0]
     const deviceWidth = getConfigData('deviceWidth')
@@ -357,72 +363,40 @@ const grabAnimation = () => {
             let direction = 1 // 摆动方向
             let deg = 0 // 摆动角度
             const timerSwing = setInterval(() => {
-                deg += 0.6 * direction
+                deg += 0.4 * direction
                 gripperBox.style.transform = `rotate(${deg}deg)`
                 if (Math.abs(deg) >= 7.5) { // 摆动最大角度7.5deg
                     direction = deg < 0 ? 1 : -1
                 }
-            }, 50)
-            await wait(2400)
+            }, 30)
+            await wait(2500)    // 爪子提前摆动
+            let opened = false    // 防止出现未张开爪子就开始下落抓取
             const timerListen = setInterval(async () => { // 爪子摆动完之后开始监听抓取
                 const left = document.getElementsByClassName(getConfigData('giftLiclassName'))[0].getBoundingClientRect().left
-                const leftInterval = -29 * deviceWidth / 750 // -29为iphone6分辨率刚好抓中左边距
-                if (left <= leftInterval && left >= leftInterval - 5) { // 当检测到到达某个区间时表示可以刚好抓到盒子，区间为:[leftInterval - 5, leftInterval]
-                    // console.log(left)
+                const leftInterval = -120 * deviceWidth / 750
+                // 爪子回正以及爪子张开时机监听
+                if (left <= leftInterval + 40 && left >= leftInterval - 10 + 40) {
                     clearInterval(timerSwing) // 爪子停止摆动
-                    clearInterval(timerListen) // 停止监听抓取
                     gripperBox.style.transition = 'transform 0.2s linear'
                     gripperBox.style.transform = 'rotate(0)' // 爪子角度0
                     handLeft.style.transform = 'rotate(17deg)' // 张开爪子
                     handRight.style.transform = 'rotate(-17deg)'
-                    await wait(200) // 此定时器使爪子摆正
+                    opened = true
+                }
+                // 监听是否有满足抓取的盒子
+                if (opened && left <= leftInterval && left >= leftInterval - 5) {
+                    gripperBox.style.transition = 'transform 0s linear'
+                    clearInterval(timerListen) // 停止监听抓取
+                    opened = false
                     resolve()
                 }
             }, 20);
         })
     }
 
-    // 抓取逻辑
-    const grab = () => {
-        const rand = Math.random() // 生成抓取随机数
-        const getOrder = 4
-        const giftShows = document.getElementsByClassName(getConfigData('giftLiclassName'))
-        const temp = giftShows[getOrder] // 暂存抓中节点，用于隐藏和显示操作
-        const clone = giftShows[getOrder].cloneNode(true) // 复制一份抓中节点到爪子上
-        return new Promise(async resolve => {
-            gripperHand.style.transform = 'translate3d(0px, 2.12rem, 0px)' // 爪子下落
-            await wait(1100) // 稍等片刻后合闭爪子
-            handLeft.style.transform = 'rotate(0deg)'
-            handRight.style.transform = 'rotate(0deg)'
-            await wait(270) // 抓取过程
-            temp.classList.add('hidden') // 隐藏轨道上被抓住的盒子
-            gripperHand.appendChild(clone)
-            gripperHand.style.transition = 'transform 0.6s ease-in'
-            gripperHand.style.transform = 'translate3d(0px, 0px, 0px)' // 爪子回到原来位置
-            console.log("%c%s", "color: #fff; background: #20B2AA; font-size: 12px;", `当前概率: ${rand}, 抓中概率: ${temp.chance}, 是否抓中: ${rand < temp.chance}`);
-            if (rand >= temp.chance) { // 未抓中
-                await wait(400)
-                clone.style.transform = 'translate3d(0px, 5.5rem, 0px)' // 爪子掉落
-                await wait(900)
-                openPopup('grabFailure') // 抓取失败弹窗
-                temp.classList.remove('hidden')
-                gripperHand.style.transition = 'transform 1.5s linear'
-                gripperHand.lastChild.remove()
-                resolve()
-            } else { // 抓中
-                await wait(700)
-                openPopup('acceptHappy', temp.firstChild.innerText) // 开启抓取成功弹窗
-                temp.classList.remove('hidden')
-                gripperHand.style.transitionDuration = '1.5s'
-                gripperHand.lastChild.remove()
-                resolve()
-            }
-        })
-    }
-
     (async function () {
-        await beforeGrab() // 抓取前，晃动爪子，监听抓去的盒子
-        grab() // 抓取，停止晃动，张开爪子，爪子下落，爪子合拢。。。
+        await beforeGrab() // 抓取前，晃动爪子，监听抓取的盒子
+        setConfigData('getBox', true)    // 抓取逻辑
     })()
 }
 
@@ -433,5 +407,5 @@ export {
     closePopup,
     openPopup,
     popupPromptBox,
-    choiceNumber
+    choiceNumber,
 }

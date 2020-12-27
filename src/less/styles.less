@@ -55,8 +55,6 @@
                 line-height: 23px;
             }
 
-            .tagRule {}
-
             .tagWareHouse {
                 margin-top: 21px;
             }
@@ -75,7 +73,7 @@
             position: absolute;
             display: inline-block;
             width: 200px;
-            transform: translate3d(-50%, 0px, 0px);
+            transform: translate3d(-50%, 0, 0);
 
             .scrollLi {
                 line-height: 25px;
@@ -98,44 +96,43 @@
     .fetchSelection {
         position: relative;
         width: 473px;
+        height: 86px;
         margin: 0 auto;
         margin-top: 131px;
-        z-index: 9;
+        z-index: 100;
         font-size: 0;
 
         .selectionBtn {
+            position: absolute;
+            top: 0;
             width: 221px;
             height: 86px;
         }
 
         .boxIcon {
+            left: 0;
             background-image: url(../assets/sprites/sprite1.png);
-            background-position: 0px -357px;
+            background-position: 0 -357px;
             background-size: 893px 780px;
         }
 
         .inKind {
+            right: 0;
             margin-left: 27px;
             background-image: url(../assets/sprites/sprite1.png);
             background-position: -221px -357px;
             background-size: 893px 780px;
         }
 
-        .selectionBtnMask {
+        .active::after {
+            content: '';
             position: absolute;
             top: 0;
-            width: 221px;
-            height: 86px;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background-color: rgba(0, 0, 0, .3);
             border-radius: 28px;
-        }
-
-        .selectionBtnMaskLeft {
-            left: 0;
-        }
-
-        .selectionBtnMaskRight {
-            right: 0;
         }
     }
 
@@ -151,8 +148,9 @@
         overflow: hidden;
 
         .gripperHand {
-            transition: transform 1.5s linear;
 
+            /*             transition: transform 1.5s linear;
+ */
             .gripper {
                 position: relative;
                 width: 34px;
@@ -160,7 +158,7 @@
                 margin-top: -203px;
                 margin-left: 359px;
                 background-image: url(../assets/sprites/sprite1.png);
-                background-position: -759px 0px;
+                background-position: -759px 0;
                 background-size: 893px 780px;
                 z-index: 1;
 
@@ -353,24 +351,24 @@
 
     .machineMaskGreen {
         background-image: url(../assets/sprites/sprite2.png);
-        background-position: 0px -425px;
+        background-position: 0 -425px;
         background-size: 1408px 1007px;
     }
 
     .machineMaskPurple {
         background-image: url(../assets/sprites/sprite2.png);
-        background-position: 0px -716px;
+        background-position: 0 -716px;
         background-size: 1408px 1007px;
     }
 
     .choiceNumber {
-        position: relative;
         width: 750px;
         height: 100px;
         margin: 0 auto;
         margin-top: -18px;
 
         .boxIconBtn {
+            position: relative;
             display: inline-block;
             width: 100px;
             height: 70px;
@@ -379,25 +377,28 @@
         }
 
         .boxIcon8 {
-            margin-left: 5px;
+            margin-left: -5px;
             background-image: url(../assets/sprites/sprite1.png);
-            background-position: -793px 0px;
+            background-position: -788px 0;
             background-size: 893px 780px;
         }
 
         .boxIcon18 {
+            margin-left: -5px;
             background-image: url(../assets/sprites/sprite1.png);
-            background-position: -393px -284px;
+            background-position: -388px -284px;
             background-size: 893px 780px;
         }
 
         .boxIcon38 {
+            margin-left: -4px;
             background-image: url(../assets/sprites/sprite1.png);
-            background-position: -442px -357px;
+            background-position: -436px -357px;
             background-size: 893px 780px;
         }
 
         .boxIconBtnInKind {
+            position: relative;
             display: none;
             width: 155px;
             height: 70px;
@@ -424,57 +425,38 @@
             height: 70px;
             margin-left: 12px;
             background-image: url(../assets/sprites/sprite1.png);
-            background-position: -569px 0px;
             background-size: 893px 780px;
         }
 
-        .mask {
-            display: inline-block;
+        .goBtn1 {
+            background-position: -560px -70px;
+        }
+
+        .goBtn2 {
+            background-position: -569px 0;
+        }
+
+        .activeIcon::after {
+            content: '';
             position: absolute;
-            top: 34px;
-            left: 77px;
+            top: 3px;
+            left: -5px;
             width: 115.5px;
             height: 93px;
             border-radius: 17px;
             background-color: rgba(0, 0, 0, .3);
-            transform: skewX(-4deg);
-        }
-
-        .maskIcon {
-            width: 115.5px;
-        }
-
-        .maskInKind {
-            width: 178.5px
-        }
-
-        .mask8 {
-            left: 77px;
-            width: 115.5px;
-            transform: skewX(-4deg);
-        }
-
-        .mask18 {
-            left: 202.5px;
-            width: 115px;
-            transform: skewX(-3deg);
-        }
-
-        .mask38 {
-            left: 328px;
-            width: 115px;
             transform: skewX(-2deg);
         }
 
-        .mask199 {
-            left: 77px;
-            width: 178.5px;
-            transform: skewX(-4deg);
-        }
-
-        .mask1299 {
-            left: 263px;
+        .activeInKind::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: -11px;
             width: 178px;
+            height: 93px;
+            border-radius: 17px;
+            background-color: rgba(0, 0, 0, .3);
             transform: skewX(-2deg);
         }
     }
@@ -493,7 +475,7 @@
             height: 68px;
             margin-top: 26px;
             background-image: url(../assets/sprites/sprite1.png);
-            background-position: 0px -83px;
+            background-position: 0 -83px;
             background-size: 673px 600px;
             text-align: right;
 
@@ -511,7 +493,7 @@
 
     .activity {
         display: inline-block;
-        margin-top: 50px;
+        margin-top: 125px;
         font-size: 0;
 
         .activityTitle {
@@ -519,7 +501,7 @@
             height: 105px;
             margin: 0 auto;
             background-image: url(../assets/sprites/sprite1.png);
-            background-position: 0px 0px;
+            background-position: 0 0;
             background-size: 893px 780px;
         }
 
@@ -550,7 +532,7 @@
         .activityBox01 {
             margin-top: 42px;
             background-image: url(../assets/sprites/sprite2.png);
-            background-position: -704px 0px;
+            background-position: -704px 0;
             background-size: 1408px 1007px;
 
 
@@ -596,12 +578,12 @@
 
                     .packageReceived {
                         background-image: url(../assets/sprites/sprite1.png);
-                        background-position: 0px -204px;
+                        background-position: 0 -204px;
                     }
 
                     .packageReceiveWill {
                         background-image: url(../assets/sprites/sprite1.png);
-                        background-position: -393px 0px;
+                        background-position: -393px 0;
                     }
 
                     .packageReceiveNot {
@@ -688,7 +670,7 @@
         .activityBox02 {
             margin-top: 52px;
             background-image: url(../assets/sprites/sprite2.png);
-            background-position: 0px 0px;
+            background-position: 0 0;
             background-size: 1408px 1007px;
 
             .activityBoxTitle {
@@ -730,7 +712,7 @@
                 }
 
                 .day05 {
-                    background-position: 0px -544px;
+                    background-position: 0 -544px;
                 }
 
                 .day06 {
@@ -774,7 +756,7 @@
                 }
 
                 .dayGot07 {
-                    background-position: 0px -643px;
+                    background-position: 0 -643px;
                     background-color: #ff672b;
                 }
             }
@@ -796,13 +778,13 @@
                     width: 273px;
                     height: 93px;
                     background-color: #e67825;
-                    box-shadow: 0px 2px 5px 3px rgba(157, 77, 41, 0.2);
+                    box-shadow: 0 2px 5px 3px rgba(157, 77, 41, 0.2);
                     border-radius: 47px;
                 }
 
                 .btnAble {
                     background-image: linear-gradient(0deg, #fab635 0%, #ffe581 100%);
-                    box-shadow: inset 0px 2px 3px 0px rgba(255, 255, 255, 0.67);
+                    box-shadow: inset 0 2px 3px 0 rgba(255, 255, 255, 0.67);
                     box-shadow: 0 8px rgb(230, 120, 36);
                     border-radius: 47px;
                 }
@@ -853,7 +835,7 @@
             height: 33px;
             margin: 0 auto;
             background-image: url(../assets/sprites/sprite1.png);
-            background-position: 0px -511px;
+            background-position: 0 -511px;
             background-size: 893px 780px;
         }
 
@@ -889,7 +871,7 @@
             margin: 0 auto;
             margin-top: 16px;
             background-image: url(../assets/sprites/sprite1.png);
-            background-position: 0px -443px;
+            background-position: 0 -443px;
             background-size: 893px 780px;
         }
 
@@ -911,7 +893,7 @@
         width: 666px;
         height: 775px;
         background-image: url(../assets/sprites/sprite3.png);
-        background-position: -1330px 0px;
+        background-position: -1330px 0;
         background-size: 2661px 1531px;
 
         .titleBox {
@@ -950,7 +932,7 @@
         width: 666px;
         height: 626px;
         background-image: url(../assets/sprites/sprite3.png);
-        background-position: 0px -905px;
+        background-position: 0 -905px;
         background-size: 2661px 1531px;
 
         .titleBox {
@@ -961,7 +943,7 @@
                 margin: 0 auto;
                 margin-top: 15px;
                 background-image: url(../assets/sprites/sprite1.png);
-                background-position: 0px -742px;
+                background-position: 0 -742px;
                 background-size: 893px 780px;
                 vertical-align: top;
             }
@@ -978,7 +960,7 @@
                 height: 94px;
                 margin-top: 49px;
                 background-color: rgb(87, 133, 191);
-                box-shadow: 0px 9px 25px 7px rgba(30, 62, 103, 0.14);
+                box-shadow: 0 9px 25px 7px rgba(30, 62, 103, 0.14);
                 border-radius: 45px;
                 border: solid 2px #97bae6;
                 font-size: 0;
@@ -1045,7 +1027,7 @@
                     height: 99px;
                     margin-top: 32px;
                     background-image: url(../assets/sprites/sprite1.png);
-                    background-position: 0px -105px;
+                    background-position: 0 -105px;
                     background-size: 893px 780px;
                     text-align: right;
 
@@ -1071,7 +1053,7 @@
         width: 665px;
         height: 905px;
         background-image: url(../assets/sprites/sprite3.png);
-        background-position: 0px 0px;
+        background-position: 0 0;
         background-size: 2661px 1531px;
 
         .titleBox {
@@ -1127,7 +1109,7 @@
                     height: 74px;
                     margin-bottom: 16px;
                     padding: 22px 30px;
-                    box-shadow: 0px 9px 25px 7px rgba(30, 62, 103, 0.14);
+                    box-shadow: 0 9px 25px 7px rgba(30, 62, 103, 0.14);
                     border-radius: 36px;
                     border: solid 2px #97bae6;
 
@@ -1173,7 +1155,7 @@
         width: 665px;
         height: 824px;
         background-image: url(../assets/sprites/sprite3.png);
-        background-position: -665px 0px;
+        background-position: -665px 0;
         background-size: 2661px 1531px;
 
         .titleBox {
@@ -1242,7 +1224,7 @@
                 height: 93px;
                 margin-top: 48px;
                 background-image: linear-gradient(0deg, #66bbec 0%, #ccf3ff 100%);
-                box-shadow: inset 0px 2px 3px 0px rgba(255, 255, 255, 0.67);
+                box-shadow: inset 0 2px 3px 0 rgba(255, 255, 255, 0.67);
                 box-shadow: 0 6px rgb(52, 140, 191);
                 border: 0;
                 border-radius: 47px;
@@ -1318,7 +1300,7 @@
                 height: 93px;
                 margin-top: 118px;
                 background-image: linear-gradient(0deg, #66bbec 0%, #ccf3ff 100%);
-                box-shadow: inset 0px 2px 3px 0px rgba(255, 255, 255, 0.67);
+                box-shadow: inset 0 2px 3px 0 rgba(255, 255, 255, 0.67);
                 box-shadow: 0 6px rgb(52, 140, 191);
                 border: 0;
                 border-radius: 47px;
@@ -1390,7 +1372,7 @@
                     background-image: linear-gradient(0deg,
                             #fab635 0%,
                             #ffe581 100%);
-                    box-shadow: inset 0px 2px 3px 0px rgba(255, 255, 255, 0.67);
+                    box-shadow: inset 0 2px 3px 0 rgba(255, 255, 255, 0.67);
                     box-shadow: 0 8px rgb(230, 120, 36);
                     border-radius: 47px;
 
@@ -1415,7 +1397,7 @@
                     background-image: linear-gradient(0deg,
                             #66bbec 0%,
                             #ccf3ff 100%);
-                    box-shadow: inset 0px 2px 3px 0px rgba(255, 255, 255, 0.67);
+                    box-shadow: inset 0 2px 3px 0 rgba(255, 255, 255, 0.67);
                     box-shadow: 0 8px rgb(52, 140, 191);
                     border-radius: 47px;
 
@@ -1433,7 +1415,7 @@
                     width: 343px;
                     height: 94px;
                     background-image: linear-gradient(0deg, #fab635 0%, #ffe581 100%);
-                    box-shadow: inset 0px 2px 3px 0px rgba(255, 255, 255, 0.67);
+                    box-shadow: inset 0 2px 3px 0 rgba(255, 255, 255, 0.67);
                     box-shadow: 0 8px rgb(230, 120, 36);
                     border-radius: 47px;
 
@@ -1451,7 +1433,7 @@
                     width: 343px;
                     height: 94px;
                     background-image: linear-gradient(0deg, #fab635 0%, #ffe581 100%);
-                    box-shadow: inset 0px 2px 3px 0px rgba(255, 255, 255, 0.67);
+                    box-shadow: inset 0 2px 3px 0 rgba(255, 255, 255, 0.67);
                     box-shadow: 0 8px rgb(230, 120, 36);
                     border-radius: 47px;
 
@@ -1469,7 +1451,7 @@
                     width: 343px;
                     height: 94px;
                     background-image: linear-gradient(0deg, #fab635 0%, #ffe581 100%);
-                    box-shadow: inset 0px 2px 3px 0px rgba(255, 255, 255, 0.67);
+                    box-shadow: inset 0 2px 3px 0 rgba(255, 255, 255, 0.67);
                     box-shadow: 0 8px rgb(230, 120, 36);
                     border-radius: 47px;
 
@@ -1489,7 +1471,7 @@
                     background-image: linear-gradient(0deg,
                             #66bbec 0%,
                             #ccf3ff 100%);
-                    box-shadow: inset 0px 2px 3px 0px rgba(255, 255, 255, 0.67);
+                    box-shadow: inset 0 2px 3px 0 rgba(255, 255, 255, 0.67);
                     box-shadow: 0 8px rgb(52, 140, 191);
                     border-radius: 47px;
 
@@ -1510,7 +1492,7 @@
                     background-image: linear-gradient(0deg,
                             #66bbec 0%,
                             #ccf3ff 100%);
-                    box-shadow: inset 0px 2px 3px 0px rgba(255, 255, 255, 0.67);
+                    box-shadow: inset 0 2px 3px 0 rgba(255, 255, 255, 0.67);
                     box-shadow: 0 8px rgb(52, 140, 191);
                     border-radius: 47px;
 
@@ -1551,7 +1533,7 @@
                 display: inline-block;
                 width: 518px;
                 height: 75px;
-                box-shadow: 0px 9px 25px 7px rgba(30, 62, 103, 0.14);
+                box-shadow: 0 9px 25px 7px rgba(30, 62, 103, 0.14);
                 border-radius: 36px;
                 border: solid 2px #97bae6;
                 font-size: 24px;
@@ -1668,7 +1650,7 @@
             width: 665px;
             height: 492px;
             background-image: url(../assets/sprites/sprite3.png);
-            background-position: -1996px 0px;
+            background-position: -1996px 0;
             background-size: 2661px 1531px;
         }
 

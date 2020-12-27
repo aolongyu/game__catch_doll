@@ -33,16 +33,6 @@
             "id": "type1_001",
             "name": "17游币",
             "chance": 0.1
-        },
-        {
-            "id": "type1_001",
-            "name": "18游币",
-            "chance": 0.1
-        },
-        {
-            "id": "type1_001",
-            "name": "19游币",
-            "chance": 0.1
         }
     ],
     "type2": [{
@@ -74,21 +64,6 @@
             "id": "type1_001",
             "name": "26游币",
             "chance": 0.2
-        },
-        {
-            "id": "type1_001",
-            "name": "27游币",
-            "chance": 0.2
-        },
-        {
-            "id": "type1_001",
-            "name": "28游币",
-            "chance": 0.2
-        },
-        {
-            "id": "type1_001",
-            "name": "29游币",
-            "chance": 0.2
         }
     ],
     "type3": [{
@@ -119,21 +94,6 @@
         {
             "id": "type1_001",
             "name": "36游币",
-            "chance": 0.3
-        },
-        {
-            "id": "type1_001",
-            "name": "37游币",
-            "chance": 0.3
-        },
-        {
-            "id": "type1_001",
-            "name": "38游币",
-            "chance": 0.3
-        },
-        {
-            "id": "type1_001",
-            "name": "39游币",
             "chance": 0.3
         }
     ]
