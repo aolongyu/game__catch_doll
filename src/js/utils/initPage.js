@@ -2,57 +2,55 @@
  * 初始化页面数据
  */
 
-import { createGiftShowTag } from "./createLiNodes"
+import {
+    getConfigData,
+    setConfigData
+} from "./config"
+import {
+    createGiftShowTag
+} from "./createLiNodes"
 
 const initPage = (achievementData, iconGifts, inKindGifts, myWealth, signData, winners, giftImg) => {
+    const rootHtml = document.documentElement
+    const deviceWidth = rootHtml.clientWidth
+    setConfigData('fontSize', deviceWidth / 7.5)
+    setConfigData('deviceWidth', deviceWidth)
+
     // 初始化抓取次数
-    let grabNumber = document.getElementsByClassName('grabNumber')[0].childNodes[1]
+    const grabNumber = document.getElementsByClassName('grabNumber')[0].childNodes[1]
     grabNumber.innerText = achievementData.catchTimes
     // 初始化抓抓成就
-    let catchNums = document.getElementsByClassName('catchNum')
-    let packageAlls = document.getElementsByClassName('packageAll')
-    let progressLine = document.getElementsByClassName('progressLine')[0]
-    let progressIcons = document.getElementsByClassName('progressIcon')
+    const catchNums = document.getElementsByClassName('catchNum')
+    const packageAlls = document.getElementsByClassName('packageAll')
+    const progressLine = document.getElementsByClassName('progressLine')[0]
     achievementData.details.forEach((element, index) => {
         if (element.complete) {
             if (element.receive) {
-                packageAlls[index].className = 'packageAll packageReceived'
+                packageAlls[index].classList.add('packageReceived')
             } else {
-                packageAlls[index].className = 'packageAll packageReceiveWill'
+                packageAlls[index].classList.add('packageReceiveWill')
             }
+        } else {
+            packageAlls[index].classList.add('packageReceiveNot')
         }
     });
-
-    if (achievementData.catchTimes >= achievementData.details[2].data) {
-        // 进度点
-        progressIcons[0].className = 'progressIcon receivedIcon'
-        progressIcons[1].className = 'progressIcon progressIconMiddle receivedIcon'
-        progressIcons[2].className = 'progressIcon receivedIcon'
-        if (achievementData.details[2].receive) {
-            progressLine.className = 'progressLine progressLineAll'
-        } else {
-            progressLine.className = 'progressLine progressLine3'
-        }
+    if (achievementData.details[2].receive) {
+        progressLine.classList.add('progressLineE')
+    } else if (achievementData.catchTimes >= achievementData.details[2].data) {
+        progressLine.classList.add('progressLineD')
     } else if (achievementData.catchTimes >= achievementData.details[1].data) {
-        progressLine.className = 'progressLine progressLine2'
-        progressIcons[0].className = 'progressIcon receivedIcon'
-        progressIcons[1].className = 'progressIcon progressIconMiddle receivedIcon'
-        progressLine.className = 'progressLine progressLine2'
+        progressLine.classList.add('progressLineC')
     } else if (achievementData.catchTimes >= achievementData.details[0].data) {
-        progressLine.className = 'progressLine progressLine1'
-        progressIcons[0].className = 'progressIcon receivedIcon'
-        progressIcons[1].className = 'progressIcon progressIconMiddle'
-        progressLine.className = 'progressLine progressLine1'
+        progressLine.classList.add('progressLineB')
     } else {
-        progressLine.className = 'progressLine'
-        progressIcons[1].className = 'progressIcon progressIconMiddle'
+        progressLine.classList.add('progressLineA')
     }
     for (let i = 0; i < catchNums.length; i++) {
         catchNums[i].innerText = `抓${achievementData.details[i].data}次`
     }
 
     // 初始化签到卡片
-    let dayCards = document.getElementsByClassName('dayCard')
+    const dayCards = document.getElementsByClassName('dayCard')
     for (let i = 0; i < signData.day; i++) {
         dayCards[i].className = `dayCard day0${ i + 1 } dayGot dayGot0${ i + 1 }`
     }

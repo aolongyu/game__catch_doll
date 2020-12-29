@@ -41,20 +41,20 @@ const lantern = (element, speed = 1, className) => {
             notChangeLi = false
             return
         }
-        ul.style.transform = `translate3d(${ offsetBox / fontSize }rem, 0px, 0px)`
+        ul.style['-webkit-transform'] = `translate3d(${ offsetBox / fontSize }rem, 0px, 0px)`
         if (offsetBox <= -liWidth) {
             ul.appendChild(li)
-            ul.style.transform = `translate3d(0px, 0px, 0px)`
+            ul.style['-webkit-transform'] = `translate3d(0px, 0px, 0px)`
             offsetBox = 0
         }
 
         // 爪子操作逻辑
         if (getConfigData('getBox')) {
             offsetGripper += speedReal * direction
-            gripperHand.style.transform = `translate3d(0px, ${ offsetGripper / fontSize }rem, 0px)`
+            gripperHand.style['-webkit-transform'] = `translate3d(0px, ${ offsetGripper / fontSize }rem, 0px)`
             if (offsetGripper >= 170 * deviceWidth / 750) {
-                handLeft.style.transform = 'rotate(0deg)'
-                handRight.style.transform = 'rotate(0deg)'
+                handLeft.style['-webkit-transform'] = 'rotate(0deg)'
+                handRight.style['-webkit-transform'] = 'rotate(0deg)'
             }
             if (offsetGripper >= 190 * deviceWidth / 750) {
                 const rand = Math.random() // 生成抓取随机数
@@ -69,7 +69,7 @@ const lantern = (element, speed = 1, className) => {
                 console.log("%c%s", "color: #fff; background: #20B2AA; font-size: 12px;", `当前概率: ${rand}, 抓中概率: ${temp.chance}, 是否抓中: ${rand < temp.chance}`);
                 if (rand >= temp.chance) { // 未抓中
                     await wait(600)
-                    clone.style.transform = 'translate3d(0px, 5.5rem, 0px)' // 盒子掉落
+                    clone.style['-webkit-transform'] = 'translate3d(0px, 5.5rem, 0px)' // 盒子掉落
                     await wait(400)
                     openPopup('grabFailure') // 抓取失败弹窗
                     temp.classList.remove('hidden')
@@ -82,7 +82,7 @@ const lantern = (element, speed = 1, className) => {
                 }
             }
             if (offsetGripper < 0) {
-                gripperHand.style.transform = `translate3d(0px, 0px, 0px)`
+                gripperHand.style['-webkit-transform'] = `translate3d(0px, 0px, 0px)`
                 offsetGripper = 0
                 direction = 1
                 setConfigData('getBox', false)

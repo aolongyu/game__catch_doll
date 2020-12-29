@@ -3,14 +3,28 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=0.5, maximum-scale=0.5, minimum-scale=0.5">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1">
     <title>魔力抓抓机</title>
     <script>
-        (function () {
+        function resizeBaseFontSize() {
             var rootHtml = document.documentElement
             var deviceWidth = rootHtml.clientWidth
             rootHtml.style.fontSize = deviceWidth / 7.5 + "px"
-        })()
+        }
+
+        function setViewport() {
+            const dpr = window.devicePixelRatio
+            const viewport = document.getElementsByName('viewport')[0]
+            viewport.content =
+                `width=device-width, user-scalable=no, initial-scale=${ 1 / dpr }, maximum-scale=${ 1 / dpr }, minimum-scale=${ 1 / dpr }`
+        }
+        setViewport()
+        resizeBaseFontSize()
+        window.addEventListener("resize", resizeBaseFontSize, false)
+        window.addEventListener("orientationchange", resizeBaseFontSize, false)
+        window.addEventListener("resize", setViewport, false)
+        window.addEventListener("orientationchange", setViewport, false)
     </script>
 </head>
 
@@ -78,15 +92,15 @@
                     <div class="grabNumber">本周已抓次数 : <span class="number">0</span></div>
                     <div class="achievementAward">
                         <div class="package">
-                            <i class="packageAll packageReceiveNot"></i>
-                            <i class="packageAll packageReceiveNot"></i>
-                            <i class="packageAll packageReceiveNot"></i>
+                            <i class="packageAll"></i>
+                            <i class="packageAll"></i>
+                            <i class="packageAll"></i>
                         </div>
                         <div class="progressBar">
                             <div class="progressLine">
-                                <i class="progressIcon"></i>
-                                <i class="progressIcon"></i>
-                                <i class="progressIcon"></i>
+                                <i class="progressIcon progressIcon1"></i>
+                                <i class="progressIcon progressIcon2 progressIconMiddle"></i>
+                                <i class="progressIcon progressIcon3"></i>
                             </div>
                             <div class="progressMsg">
                                 <span class="catchNum catch40">抓null次</span>
@@ -244,19 +258,15 @@
             <button class="popupCloseBtn"></button>
 
             <div class="promptBox middleBox">
-                <p id="popupPromptMsg01" class="msg msgConfirmPayment">确认使用 <span class="specialText">8盒币</span> 开始吗？
-                </p>
+                <p id="popupPromptMsg01" class="msg msgConfirmPayment">确认使用 <span class="specialText">8盒币</span> 开始吗？</p>
                 <p id="popupPromptMsg02" class="msg msgToJoin">没有免费抓抓券哦~<br>快去参与抓抓券大放送获得吧！</p>
-                <p id="popupPromptMsg03" class="msg msgAcceptHappy">被你抓到啦！<br>恭喜获得 <span class="specialText">0盒币</span>
-                </p>
+                <p id="popupPromptMsg03" class="msg msgAcceptHappy">被你抓到啦！<br>恭喜获得 <span class="specialText">0盒币</span></p>
                 <p id="popupPromptMsg04" class="msg msgTryAgain">啊..没有抓中耶......<br>再来一局试试！</p>
                 <p id="popupPromptMsg05" class="msg msgTopupIcon">盒币不足~快去充值吧</p>
-                <p id="popupPromptMsg06" class="msg msgInputAddress">被你抓到啦！恭喜获得<br><span
-                        class="specialText">小天才电话手表</span></p>
+                <p id="popupPromptMsg06" class="msg msgInputAddress">被你抓到啦！恭喜获得<br><span class="specialText">小天才电话手表</span></p>
                 <div class="btn">
                     <button id="popupPromptBtn01" class="promptBtn confirmPayment"><i class="btnText"></i></button>
-                    <button id="popupPromptBtn02" class="promptBtn confirmPayment confirmPayment2"><i
-                            class="btnText"></i></button>
+                    <button id="popupPromptBtn02" class="promptBtn confirmPayment confirmPayment2"><i class="btnText"></i></button>
                     <button id="popupPromptBtn03" class="promptBtn useCatchVoucher"><i class="btnText"></i></button>
                     <button id="popupPromptBtn04" class="promptBtn toJoin"><i class="btnText"></i></button>
                     <button id="popupPromptBtn05" class="promptBtn acceptHappy"><i class="btnText"></i></button>
@@ -269,28 +279,28 @@
 
             <div class="levelBox middleBox">
                 <div class="level primary">
-                    <span class="title">初级场</span>
-                    <span class="message">每开始一次支付<span class="specialText">8盒币</span></span>
+                    <span class="title middle">初级场</span>
+                    <span class="message middle">每开始一次支付<span class="specialText">8盒币</span></span>
                 </div>
                 <div class="level intermediate">
-                    <span class="title">中级场</span>
-                    <span class="message">每开始一次支付<span class="specialText">18盒币</span></span>
+                    <span class="title middle">中级场</span>
+                    <span class="message middle">每开始一次支付<span class="specialText">18盒币</span></span>
                 </div>
                 <div class="level senior">
-                    <span class="title">高级场</span>
-                    <span class="message">每开始一次支付<span class="specialText">38盒币</span></span>
+                    <span class="title middle">高级场</span>
+                    <span class="message middle">每开始一次支付<span class="specialText">38盒币</span></span>
                 </div>
                 <div class="intro">新增抓实物模块，中奖概率<span class="specialText">100%</span>哦</div>
             </div>
 
             <div class="levelBox smallBox">
                 <div class="level primary">
-                    <span class="title">初级场</span>
-                    <span class="message">每开始一次支付<span class="specialText">199盒币</span></span>
+                    <span class="title middle">初级场</span>
+                    <span class="message middle">每开始一次支付<span class="specialText">199盒币</span></span>
                 </div>
                 <div class="level senior">
-                    <span class="title">高级场</span>
-                    <span class="message">每开始一次支付<span class="specialText">1299盒币</span></span>
+                    <span class="title middle">高级场</span>
+                    <span class="message middle">每开始一次支付<span class="specialText">1299盒币</span></span>
                 </div>
                 <div class="intro">新增抓实物模块，中奖概率<span class="specialText">100%</span>哦</div>
             </div>

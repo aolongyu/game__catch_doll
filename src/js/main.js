@@ -80,11 +80,12 @@ const changeFetchSelection = (index) => {
  * 下一页
  */
 const nextPage = () => {
-    const deviceHeight = document.documentElement.clientHeight
+    // const deviceHeight = document.documentElement.clientHeight
+    const deviceHeight = window.innerHeight
     const container = document.getElementById('container')
     const sections = container.getElementsByClassName('section')
     sections[0].scrollTop = sections[0].scrollHeight
-    container.style.transform = `translate3d(0px, ${-deviceHeight}px, 0px)`
+    container.style['-webkit-transform'] = `translate3d(0px, ${-deviceHeight}px, 0px)`
 }
 
 /**
@@ -147,7 +148,7 @@ const closePopup = (msg) => {
  * 弹窗展示
  * @param {Array} arr01 要展示的对象
  * @param {any} data 要展示到弹窗上的数据
- * @param {Array{}} arr02 要更改的数据，三个参数
+ * @param {object[]} arr02 要更改的数据，三个参数
  */
 const windowMsgAndBtn = (arr01, data, arr02) => {
     document.getElementsByClassName('promptBox')[0].style.display = 'inline-block'
@@ -364,7 +365,7 @@ const grabAnimation = () => {
             let deg = 0 // 摆动角度
             const timerSwing = setInterval(() => {
                 deg += 0.4 * direction
-                gripperBox.style.transform = `rotate(${deg}deg)`
+                gripperBox.style['-webkit-transform'] = `rotate(${deg}deg)`
                 if (Math.abs(deg) >= 7.5) { // 摆动最大角度7.5deg
                     direction = deg < 0 ? 1 : -1
                 }
@@ -378,9 +379,9 @@ const grabAnimation = () => {
                 if (left <= leftInterval + 40 && left >= leftInterval - 10 + 40) {
                     clearInterval(timerSwing) // 爪子停止摆动
                     gripperBox.style.transition = 'transform 0.2s linear'
-                    gripperBox.style.transform = 'rotate(0)' // 爪子角度0
-                    handLeft.style.transform = 'rotate(17deg)' // 张开爪子
-                    handRight.style.transform = 'rotate(-17deg)'
+                    gripperBox.style['-webkit-transform'] = 'rotate(0)' // 爪子角度0
+                    handLeft.style['-webkit-transform'] = 'rotate(17deg)' // 张开爪子
+                    handRight.style['-webkit-transform'] = 'rotate(-17deg)'
                     opened = true
                 }
                 // 监听是否有满足抓取的盒子
