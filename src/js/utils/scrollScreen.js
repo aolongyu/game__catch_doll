@@ -3,9 +3,7 @@ import getStyle from "./getStyle"
 function change() {
     const rootHtml = document.documentElement
     rootHtml.style.overflow = 'hidden'
-    // const deviceHeight = rootHtml.clientHeight
     const deviceHeight = window.screen.availHeight * window.devicePixelRatio
-    console.log(deviceHeight);
     const container = document.getElementById('container')
     container.style['-webkit-transform'] = `translate3d(0px, 0px, 0px)`
     container.style.transition = 'all 700ms ease'

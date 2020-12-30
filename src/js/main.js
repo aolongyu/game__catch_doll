@@ -82,7 +82,6 @@ const changeFetchSelection = (index) => {
  * 下一页
  */
 const nextPage = () => {
-    // const deviceHeight = document.documentElement.clientHeight
     const deviceHeight = window.screen.availHeight * window.devicePixelRatio
     const container = document.getElementById('container')
     const sections = container.getElementsByClassName('section')

@@ -41,11 +41,10 @@ import giftImg from './assets/exports'
 //---------------------------------以上导入---------------------------------//
 //--------------------------------------------------------------------------//
 import VConsole from 'vconsole'
+import getStyle from './js/utils/getStyle'
 
 // init vConsole
-new VConsole();
-
-console.log('screen:', window.screen);
+new VConsole()
 
 // 初始化页面所需数据
 initPage(achievementData, iconGifts, inKindGifts, myWealth, signData, winners, giftImg)
@@ -140,3 +139,6 @@ for (let i = 0; i < boxIconBtnInKindsAttrs.objs.length; i++) {
 // 获奖滚动
 const awardedMsg = document.getElementsByClassName('awardedMsg')[0]
 carousel(awardedMsg, 2, 600)
+
+console.log(getStyle(document.getElementsByClassName('machineContent')[0], 'width'));
+console.log(getStyle(document.getElementsByClassName('choiceNumber')[0], 'width'));
