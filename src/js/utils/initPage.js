@@ -81,7 +81,7 @@ const initPage = (achievementData, iconGifts, inKindGifts, myWealth, signData, w
     })
 
     // 初始化滚动gifts
-    createGiftShowTag('giftShowTag1 giftShow', iconGifts.type1, giftImg)
+    // createGiftShowTag('giftShowTag1 giftShow', iconGifts.type1, giftImg)
 
     // 初始化我的抓抓券
     const stamps = document.getElementsByClassName('stamps')[0]

@@ -4,7 +4,9 @@ const configData = {
     gameIcon: 8,
     giftLiclassName: 'giftShowTag1',
     showInKindPopup: false,
-    getBox: false
+    getBox: false,
+    caughtBox: null,
+    going: false
 }
 
 const setConfigData = (msg, data) => {

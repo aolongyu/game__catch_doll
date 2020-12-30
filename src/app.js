@@ -40,12 +40,18 @@ import giftImg from './assets/exports'
 //--------------------------------------------------------------------------//
 //---------------------------------以上导入---------------------------------//
 //--------------------------------------------------------------------------//
+import VConsole from 'vconsole'
+
+// init vConsole
+new VConsole();
+
+console.log('screen:', window.screen);
 
 // 初始化页面所需数据
 initPage(achievementData, iconGifts, inKindGifts, myWealth, signData, winners, giftImg)
 
 // 礼品循环滚动事件
-lantern(document.getElementsByClassName('giftList')[0], 3, 'giftShowTag1')
+lantern(document.getElementsByClassName('giftList')[0], 3, 'giftShowTag1', 'giftShow', iconGifts.type1, giftImg)
 
 // 抓盒币、抓实物切换事件绑定
 document.getElementsByClassName('boxIcon')[0].addEventListener('click', () => {

@@ -5,21 +5,17 @@
  * @param {object} giftImg 图片列表
  */
 const createGiftShowTag = (className, data, giftImg) => {
-    const giftLine = document.getElementsByClassName('giftLine')[0]
-    giftLine.innerHTML = ''
-    for (let i = 0; i < data.length; i++) {
-        const liNode = document.createElement('li')
-        liNode.className = className
-        const iNode = document.createElement('img')
-        iNode.className = 'giftImg'
-        iNode.src = giftImg[data[i].id]
-        const spanNode = document.createElement('span')
-        spanNode.innerText = data[i].name
-        liNode.appendChild(spanNode)
-        liNode.appendChild(iNode)
-        liNode.chance = data[i].chance
-        giftLine.appendChild(liNode)
-    }
+    const liNode = document.createElement('li')
+    liNode.className = className
+    const iNode = document.createElement('img')
+    iNode.className = 'giftImg'
+    iNode.src = giftImg[data.id]
+    const spanNode = document.createElement('span')
+    spanNode.innerText = data.name
+    liNode.appendChild(spanNode)
+    liNode.appendChild(iNode)
+    liNode.chance = data.chance
+    return liNode
 }
 
 /**
@@ -29,22 +25,18 @@ const createGiftShowTag = (className, data, giftImg) => {
  * @param {object} giftImg 图片列表
  */
 const createGiftShowInKindTag = (className, data, giftImg) => {
-    const giftLine = document.getElementsByClassName('giftLine')[0]
-    giftLine.innerHTML = ''
-    for (let i = 0; i < data.length; i++) {
-        const liNode = document.createElement('li')
-        liNode.className = className
-        const iNode = document.createElement('img')
-        iNode.className = 'giftImg'
-        iNode.src = giftImg[data[i].id]
-        const spanNode = document.createElement('span')
-        spanNode.classList.add('text')
-        spanNode.innerText = data[i].name
-        liNode.appendChild(spanNode)
-        liNode.appendChild(iNode)
-        liNode.chance = data[i].chance
-        giftLine.appendChild(liNode)
-    }
+    const liNode = document.createElement('li')
+    liNode.className = className
+    const iNode = document.createElement('img')
+    iNode.className = 'giftImg'
+    iNode.src = giftImg[data.id]
+    const spanNode = document.createElement('span')
+    spanNode.classList.add('text')
+    spanNode.innerText = data.name
+    liNode.appendChild(spanNode)
+    liNode.appendChild(iNode)
+    liNode.chance = data.chance
+    return liNode
 }
 
 /**

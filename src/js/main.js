@@ -28,6 +28,8 @@ import wait from "./utils/wait"
  * @param {number} index 0:抓盒币、1:抓实物
  */
 const changeFetchSelection = (index) => {
+    // 正在抓取或正在当前页面，点击无效
+    if (getConfigData('going') || ((index === 1) && (getConfigData('gameIcon') > 100)) || ((index === 0) && (getConfigData('gameIcon') <= 100))) return
     const machine = document.getElementsByClassName('machine')[0]
     const machineMask = document.getElementsByClassName('machineMask')[0]
     const boxIconBtnInKinds = document.getElementsByClassName('boxIconBtnInKind')
@@ -81,7 +83,7 @@ const changeFetchSelection = (index) => {
  */
 const nextPage = () => {
     // const deviceHeight = document.documentElement.clientHeight
-    const deviceHeight = window.innerHeight
+    const deviceHeight = window.screen.availHeight * window.devicePixelRatio
     const container = document.getElementById('container')
     const sections = container.getElementsByClassName('section')
     sections[0].scrollTop = sections[0].scrollHeight
@@ -276,6 +278,7 @@ const popupPromptBox = (msg, myWealth) => {
     // console.log('popupPromptBox: ' + msg);
     switch (msg) {
         case 'confirmPaymentSure':
+            setConfigData('going', true)    // 点击确认支付之后阻止触发点击事件
             console.log(`目前拥有${myWealth.icons}盒币`);
             closePopup() // 关闭当前弹窗
             if (myWealth.icons < getConfigData('gameIcon')) { // 判断当前盒币是否足够支付
@@ -302,6 +305,8 @@ const popupPromptBox = (msg, myWealth) => {
  * @param {number | string} iconNum 选择的支付盒币数
  */
 const choiceNumber = (iconNum) => {
+    // 点击已选中按钮或当前正在执行抓取，则点击无效
+    if (iconNum === getConfigData('gameIcon') || getConfigData('going')) return
     if (iconNum === 'go') {
         openPopup('confirmPayment', `${getConfigData('gameIcon')}盒币`)
         return
@@ -310,43 +315,44 @@ const choiceNumber = (iconNum) => {
     setConfigData('gameIcon', iconNum)
     const boxIconBtns = document.getElementsByClassName('boxIconBtn')
     const boxIconBtnInKinds = document.getElementsByClassName('boxIconBtnInKind')
-    for(let i = 0; i < boxIconBtns.length; i++) {
+    for (let i = 0; i < boxIconBtns.length; i++) {
         boxIconBtns[i].classList.remove('activeIcon')
     }
-    for(let i = 0; i < boxIconBtnInKinds.length; i++) {
+    for (let i = 0; i < boxIconBtnInKinds.length; i++) {
         boxIconBtnInKinds[i].classList.remove('activeInKind')
     }
+    let type
     switch (iconNum) {
         case 8:
+            type = 'type1'
             boxIconBtns[0].classList.add('activeIcon')
             setConfigData('giftLiclassName', 'giftShowTag1') // 配置当前数据
-            createGiftShowTag('giftShowTag1 giftShow', iconGifts.type1, giftImg) // 生成li列表
             break;
         case 18:
+            type = 'type2'
             boxIconBtns[1].classList.add('activeIcon')
             setConfigData('giftLiclassName', 'giftShowTag2')
-            createGiftShowTag('giftShowTag2 giftShow', iconGifts.type2, giftImg)
             break;
         case 38:
+            type = 'type3'
             boxIconBtns[2].classList.add('activeIcon')
             setConfigData('giftLiclassName', 'giftShowTag3')
-            createGiftShowTag('giftShowTag3 giftShow', iconGifts.type3, giftImg)
             break;
         case 199:
+            type = 'type1'
             boxIconBtnInKinds[0].classList.add('activeInKind')
             setConfigData('giftLiclassName', 'giftShowInKindTag1')
-            createGiftShowInKindTag('giftShowInKindTag1 giftShowInKind', inKindGifts.type1, giftImg)
             break;
         case 1299:
+            type = 'type2'
             boxIconBtnInKinds[1].classList.add('activeInKind')
             setConfigData('giftLiclassName', 'giftShowInKindTag2')
-            createGiftShowInKindTag('giftShowInKindTag2 giftShowInKind', inKindGifts.type2, giftImg)
             break;
         default:
             break;
     }
     // 重置列表后重置滚动效果
-    lantern(document.getElementsByClassName('giftList')[0], 3, getConfigData('giftLiclassName'))
+    lantern(document.getElementsByClassName('giftList')[0], 3, getConfigData('giftLiclassName'), iconNum <= 100 ? 'giftShow' : 'giftShowInKind', iconNum <= 100 ? iconGifts[type] : inKindGifts[type], giftImg)
 }
 
 /**
@@ -370,11 +376,18 @@ const grabAnimation = () => {
                     direction = deg < 0 ? 1 : -1
                 }
             }, 30)
-            await wait(2500)    // 爪子提前摆动
-            let opened = false    // 防止出现未张开爪子就开始下落抓取
+            await wait(2500) // 爪子提前摆动
+
+            // 创建被抓中的盒子，这些数据需要向服务端请求：'giftShowTag1 giftShow specialBox', iconGifts.type1[2], giftImg
+            const addLi = createGiftShowInKindTag(`${getConfigData('giftLiclassName')} giftShow specialBox`, iconGifts.type1[2], giftImg)
+            const ul = document.getElementsByClassName('giftLine')[0]
+
+            let flag = true
+            let opened = false // 防止出现未张开爪子就开始下落抓取
             const timerListen = setInterval(async () => { // 爪子摆动完之后开始监听抓取
                 const left = document.getElementsByClassName(getConfigData('giftLiclassName'))[0].getBoundingClientRect().left
-                const leftInterval = -120 * deviceWidth / 750
+                const leftInterval = -80 * deviceWidth / 750
+
                 // 爪子回正以及爪子张开时机监听
                 if (left <= leftInterval + 40 && left >= leftInterval - 10 + 40) {
                     clearInterval(timerSwing) // 爪子停止摆动
@@ -382,6 +395,7 @@ const grabAnimation = () => {
                     gripperBox.style['-webkit-transform'] = 'rotate(0)' // 爪子角度0
                     handLeft.style['-webkit-transform'] = 'rotate(17deg)' // 张开爪子
                     handRight.style['-webkit-transform'] = 'rotate(-17deg)'
+
                     opened = true
                 }
                 // 监听是否有满足抓取的盒子
@@ -389,6 +403,10 @@ const grabAnimation = () => {
                     gripperBox.style.transition = 'transform 0s linear'
                     clearInterval(timerListen) // 停止监听抓取
                     opened = false
+                    if (flag) {
+                        ul.insertBefore(addLi, ul.getElementsByTagName('li')[5])
+                        flag = false
+                    }
                     resolve()
                 }
             }, 20);
@@ -397,7 +415,7 @@ const grabAnimation = () => {
 
     (async function () {
         await beforeGrab() // 抓取前，晃动爪子，监听抓取的盒子
-        setConfigData('getBox', true)    // 抓取逻辑
+        setConfigData('getBox', true) // 抓取逻辑
     })()
 }
 
