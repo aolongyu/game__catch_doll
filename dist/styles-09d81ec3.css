@@ -1,0 +1,1679 @@
+/**
+ * @description 全局样式
+ * @author aolongyu
+ * @created 2020/12/08 14:38:37
+ */
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+sub,
+sup,
+tt,
+var,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+  box-sizing: border-box;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: block;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+  zoom: 1;
+}
+ul {
+  list-style: none;
+}
+li {
+  list-style-type: none;
+}
+button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: none;
+  background-color: transparent;
+}
+input {
+  outline: none;
+}
+textarea {
+  outline: none;
+}
+@font-face {
+  font-family: FZY4JW;
+  src: url(data:font/ttf;base64,ZXhwb3J0IGRlZmF1bHQgX193ZWJwYWNrX3B1YmxpY19wYXRoX18gKyAiZTZiN2JkYTI1NjBiMjlmMzE2MTc1MDgxOGViMWQ2NmYuVFRGIjs=);
+}
+body {
+  background-color: #e67d46;
+}
+.slimScrollBar {
+  width: 0.03rem !important;
+}
+
+.container {
+  position: relative;
+  width: 7.5rem;
+  text-align: center;
+  background-size: 7.5rem auto;
+}
+.container .section {
+  width: 7.5rem;
+}
+.container .machine {
+  position: relative;
+  width: 100%;
+  height: 14.8rem;
+}
+.container .machineGreen {
+  background: url(image/dd0cc932.machineGreen.png) no-repeat;
+  background-size: cover;
+}
+.container .machinePurple {
+  background: url(image/d648e0e9.machinePurple.png) no-repeat;
+  background-size: cover;
+}
+.container .header {
+  position: relative;
+  width: 7.5rem;
+  height: 2.65rem;
+}
+.container .header .logo {
+  display: inline-block;
+  width: 6.18rem;
+  height: 2.38rem;
+  margin-top: 0.17rem;
+  margin-right: 0.51rem;
+  background-image: url(image/fb61b7c7.logo.png);
+  background-position: 0 0;
+  background-size: 6.18rem 2.38rem;
+}
+.container .header .rightTag {
+  position: absolute;
+  top: 0.51rem;
+  right: 0;
+}
+.container .header .rightTag .tag {
+  display: block;
+  width: 0.8rem;
+  padding: 0.1rem 0.1rem 0.1rem 0.13rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 0.03rem solid rgba(255, 255, 255, 0.2);
+  border-right: 0;
+  border-radius: 0.22rem 0 0 0.22rem;
+  box-shadow: 0 0.05rem 0.04rem 1px rgba(188, 77, 40, 0.16);
+  font-family: FZY4JW;
+  font-size: 0.22rem;
+  color: #ffffff;
+  line-height: 0.23rem;
+}
+.container .header .rightTag .tagWareHouse {
+  margin-top: 0.21rem;
+}
+.container .machineContent {
+  width: 7.5rem;
+  height: 10.69rem;
+}
+.container .machineContent .scroll {
+  position: relative;
+  width: 7.5rem;
+  height: 0.65rem;
+  margin-top: 0.23rem;
+  overflow: hidden;
+  font-size: 0.22rem;
+}
+.container .machineContent .scroll .awardedMsg {
+  position: absolute;
+  display: inline-block;
+  width: 2rem;
+  transform: translate3d(-50%, 0, 0);
+}
+.container .machineContent .scroll .awardedMsg .scrollLi {
+  line-height: 0.25rem;
+}
+.container .machineContent .scroll .awardedMsg .scrollLi .nickname {
+  display: block;
+  padding-top: 0.05rem;
+  color: #acc3e1;
+}
+.container .machineContent .scroll .awardedMsg .scrollLi .awardAmount {
+  display: inline-block;
+  margin-top: 0.06rem;
+  color: #fff387;
+}
+.container .fetchSelection {
+  position: relative;
+  width: 4.73rem;
+  height: 0.86rem;
+  margin: 0 auto;
+  margin-top: 1.31rem;
+  z-index: 100;
+  font-size: 0;
+}
+.container .fetchSelection .selectionBtn {
+  position: absolute;
+  top: 0;
+  width: 2.21rem;
+  height: 0.86rem;
+}
+.container .fetchSelection .boxIcon {
+  left: 0;
+  background-image: url(image/103f60fc.sprite1.png);
+  background-position: 0 -3.57rem;
+  background-size: 8.93rem 7.8rem;
+}
+.container .fetchSelection .inKind {
+  right: 0;
+  margin-left: 0.27rem;
+  background-image: url(image/103f60fc.sprite1.png);
+  background-position: -2.21rem -3.57rem;
+  background-size: 8.93rem 7.8rem;
+}
+.container .fetchSelection .active::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 0.28rem;
+}
+.container .gripperBox {
+  position: absolute;
+  top: 5.31rem;
+  width: 100%;
+  height: 4.7rem;
+  margin: 0 auto;
+  font-size: 0;
+  transform-origin: 50% 0;
+  z-index: 5;
+  overflow: hidden;
+}
+.container .gripperBox .gripperHand {
+  /*             transition: transform 1.5s linear;
+ */
+}
+.container .gripperBox .gripperHand .gripper {
+  position: relative;
+  width: 0.34rem;
+  height: 3.01rem;
+  margin-top: -2.03rem;
+  margin-left: 3.59rem;
+  background-image: url(image/103f60fc.sprite1.png);
+  background-position: -7.59rem 0;
+  background-size: 8.93rem 7.8rem;
+  z-index: 1;
+}
+.container .gripperBox .gripperHand .hands {
+  display: inline-block;
+  width: 0.58rem;
+  height: 0.61rem;
+  margin-top: -0.15rem;
+  transition: transform 0.2s linear;
+}
+.container .gripperBox .gripperHand .handLeft {
+  background-image: url(image/103f60fc.sprite1.png);
+  background-position: -7.93rem -2.284rem;
+  background-size: 8.93rem 7.8rem;
+  transform-origin: 0.49rem 0.04rem;
+}
+.container .gripperBox .gripperHand .handRight {
+  margin-left: 0.18rem;
+  background-image: url(image/103f60fc.sprite1.png);
+  background-position: -7.93rem -2.9rem;
+  background-size: 8.93rem 7.8rem;
+  transform-origin: 0.1rem 0.04rem;
+}
+.container .gripperBox .gripperHand .giftShow {
+  position: relative;
+  display: block;
+  width: 1.52rem;
+  height: 1.31rem;
+  margin: 0 auto;
+  margin-top: -0.17rem;
+  padding: auto 0.1rem;
+  background-image: url(image/103f60fc.sprite1.png);
+  background-position: -3.93rem -1.53rem;
+  background-size: 8.93rem 7.8rem;
+  font-size: 0.22rem;
+  transition: transform 0.5s ease-in;
+  transform: translateX(0.0045rem);
+}
+.container .gripperBox .gripperHand .giftShow .giftImg {
+  width: 0.81rem;
+  height: 0.83rem;
+  margin-top: 0.28rem;
+}
+.container .gripperBox .gripperHand .giftShow span {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.container .gripperBox .gripperHand .giftShowInKind {
+  position: relative;
+  display: block;
+  width: 1.52rem;
+  height: 1.7rem;
+  margin: 0 auto;
+  margin-top: -0.39rem;
+  padding: auto 0.1rem;
+  background-size: 1.52rem 1.68rem;
+  font-size: 0.22rem;
+  transition: transform 0.5s ease-in;
+}
+.container .gripperBox .gripperHand .giftShowInKind .text {
+  position: absolute;
+  display: inline-block;
+  max-width: 100%;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.03rem 0.12rem;
+  background-color: #000000;
+  border-radius: 0.16rem;
+  border: solid 1px rgba(255, 255, 255, 0.27);
+  opacity: 0.6;
+  font-size: 0.2rem;
+  color: #edebd6;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.container .gripperBox .gripperHand .giftShowInKind .giftImg {
+  width: 1.52rem;
+  height: 1.68rem;
+  margin-top: -0.2rem;
+}
+.container .giftList {
+  position: relative;
+  z-index: 6;
+  width: 7.5rem;
+  height: 2.91rem;
+  margin-top: 1.66rem;
+  overflow: hidden;
+  font-size: 0;
+}
+.container .giftList .giftLine {
+  position: absolute;
+  bottom: 0.45rem;
+  white-space: nowrap;
+  font-size: 0;
+  z-index: 2;
+  transform: translateX(0);
+}
+.container .giftList .giftLine .giftShow {
+  position: relative;
+  display: inline-block;
+  vertical-align: bottom;
+  width: 1.52rem;
+  height: 1.31rem;
+  padding: auto 0.1rem;
+  background-image: url(image/103f60fc.sprite1.png);
+  background-position: -3.93rem -1.53rem;
+  background-size: 8.93rem 7.8rem;
+  font-size: 0.22rem;
+  opacity: 1;
+}
+.container .giftList .giftLine .giftShow .giftImg {
+  width: 0.81rem;
+  height: 0.83rem;
+  margin-top: 0.28rem;
+}
+.container .giftList .giftLine .giftShow span {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.container .giftList .giftLine .giftShowInKind {
+  position: relative;
+  display: inline-block;
+  vertical-align: bottom;
+  width: 1.52rem;
+  height: 1.7rem;
+  padding: auto 0.1rem;
+  background-size: 1.52rem 1.68rem;
+  font-size: 0.22rem;
+  opacity: 1;
+}
+.container .giftList .giftLine .giftShowInKind .text {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 100%;
+  padding: 0.03rem 0.12rem;
+  background-color: #000000;
+  border-radius: 0.16rem;
+  border: solid 1px rgba(255, 255, 255, 0.27);
+  opacity: 0.6;
+  font-size: 0.2rem;
+  color: #edebd6;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.container .giftList .giftLine .giftShowInKind .giftImg {
+  width: 1.52rem;
+  height: 1.68rem;
+}
+.container .giftList .giftLine .hidden {
+  opacity: 0;
+}
+.container .machineMask {
+  position: relative;
+  width: 7.5rem;
+  height: 2.91rem;
+  margin-top: -2.91rem;
+  z-index: 7;
+  background-position: 0 0;
+  background-size: 7.5rem 2.91rem;
+}
+.container .machineMaskGreen {
+  background-image: url(image/41e6efad.occludeGreen.png);
+}
+.container .machineMaskPurple {
+  background-image: url(image/f635e1bd.occludePurple.png);
+}
+.container .choiceNumber {
+  width: 5.85rem;
+  height: 1rem;
+  margin: 0 auto;
+  margin-top: -0.18rem;
+  font-size: 0;
+}
+.container .choiceNumber .boxIconBtn {
+  position: relative;
+  display: inline-block;
+  width: 1rem;
+  height: 0.7rem;
+  margin-top: 0.3rem;
+  vertical-align: top;
+}
+.container .choiceNumber .boxIcon8 {
+  float: left;
+  background-image: url(image/103f60fc.sprite1.png);
+  background-position: -7.88rem 0;
+  background-size: 8.93rem 7.8rem;
+}
+.container .choiceNumber .boxIcon18 {
+  float: left;
+  margin-left: 0.244rem;
+  background-image: url(image/103f60fc.sprite1.png);
+  background-position: -3.88rem -2.84rem;
+  background-size: 8.93rem 7.8rem;
+}
+.container .choiceNumber .boxIcon38 {
+  float: left;
+  margin-left: 0.25rem;
+  background-image: url(image/103f60fc.sprite1.png);
+  background-position: -4.36rem -3.57rem;
+  background-size: 8.93rem 7.8rem;
+}
+.container .choiceNumber .boxIconBtnInKind {
+  position: relative;
+  display: none;
+  width: 1.55rem;
+  height: 0.7rem;
+  margin-top: 0.31rem;
+  vertical-align: top;
+}
+.container .choiceNumber .boxIcon199 {
+  float: left;
+  margin-left: 0.06rem;
+  background-image: url(image/103f60fc.sprite1.png);
+  background-position: -5.69rem -2.1rem;
+  background-size: 8.93rem 7.8rem;
+}
+.container .choiceNumber .boxIcon1299 {
+  float: left;
+  margin-left: 0.305rem;
+  background-image: url(image/103f60fc.sprite1.png);
+  background-position: -5.69rem -1.4rem;
+  background-size: 8.93rem 7.8rem;
+}
+.container .choiceNumber .goBtn {
+  float: right;
+  width: 1.9rem;
+  height: 0.7rem;
+  margin-top: 0.2rem;
+  margin-right: 0.04rem;
+  background-image: url(image/103f60fc.sprite1.png);
+  background-size: 8.93rem 7.8rem;
+}
+.container .choiceNumber .goBtn1 {
+  background-position: -5.6rem -0.7rem;
+}
+.container .choiceNumber .goBtn2 {
+  background-position: -5.6rem 0;
+}
+.container .choiceNumber .activeIcon::after {
+  content: '';
+  position: absolute;
+  top: 0.03rem;
+  left: -0.05rem;
+  width: 1.155rem;
+  height: 0.93rem;
+  border-radius: 0.17rem;
+  background-color: rgba(0, 0, 0, 0.3);
+  transform: skewX(-2deg);
+}
+.container .choiceNumber .activeInKind::after {
+  content: '';
+  position: absolute;
+  top: 0.02rem;
+  left: -0.11rem;
+  width: 1.78rem;
+  height: 0.93rem;
+  border-radius: 0.17rem;
+  background-color: rgba(0, 0, 0, 0.3);
+  transform: skewX(-2deg);
+}
+.container .myStamps {
+  width: 7.5rem;
+  height: 1.24rem;
+  margin-top: 1.24rem;
+}
+.container .myStamps .stamps {
+  font-size: 0.24rem;
+  color: #e9fbf7;
+}
+.container .myStamps .freeStamps {
+  display: inline-block;
+  width: 2.32rem;
+  height: 0.68rem;
+  margin-top: 0.26rem;
+  background-image: url(image/103f60fc.sprite1.png);
+  background-position: 0 -0.83rem;
+  background-size: 6.73rem 6rem;
+  text-align: right;
+}
+.container .myStamps .freeStamps .getNowText {
+  display: inline-block;
+  width: 0.42rem;
+  height: 0.43rem;
+  margin-top: 0.09rem;
+  margin-right: 0.15rem;
+  background-image: url(image/103f60fc.sprite1.png);
+  background-position: -7.75rem -3.78rem;
+  background-size: 8.7rem 7.5rem;
+}
+.container .activity {
+  display: inline-block;
+  margin-top: 0.3rem;
+  font-size: 0;
+}
+.container .activity .activityTitle {
+  width: 3.93rem;
+  height: 1.05rem;
+  margin: 0 auto;
+  background-image: url(image/103f60fc.sprite1.png);
+  background-position: 0 0;
+  background-size: 8.93rem 7.8rem;
+}
+.container .activity .arrowDown {
+  display: inline-block;
+  width: 0.25rem;
+  height: 0.26rem;
+  margin-top: 0.12rem;
+  background-image: url(image/103f60fc.sprite1.png);
+  background-position: -8.52rem -2.64rem;
+  background-size: 8.93rem 7.8rem;
+}
+.container .activity .activityBox {
+  width: 7.04rem;
+  height: 4.16rem;
+}
+.container .activity .activityBox .activityBoxTitle {
+  display: inline-block;
+  width: 5.84rem;
+  height: 1.17rem;
+  margin-top: -0.48rem;
+  margin-right: 0.11rem;
+  /*                 background-size: 14.080rem 10.070rem; */
+}
+.container .activity .activityBox01 {
+  margin-top: 0.42rem;
+  /* background-image: url(../assets/sprites/sprite2.png);
+            background-position: -7.040rem 0;
+            background-size: 14.080rem 10.070rem; */
+  background-image: url(image/c3adf058.activityBox01.png);
+  background-position: 0 0;
+  background-size: 7.04rem 4.16rem;
+}
+.container .activity .activityBox01 .activityBoxTitle {
+  /* background-image: url(../assets/sprites/sprite2.png);
+                background-position: -7.500rem -8.340rem; */
+  background-image: url(image/ab0c216c.activityTitle01.png);
+  background-position: 0 0;
+  background-size: 5.84rem 1.17rem;
+}
+.container .activity .activityBox01 .grabNumber {
+  width: 2.52rem;
+  height: 0.46rem;
+  margin: 0 auto;
+  margin-top: 0.02rem;
+  padding-top: 0.08rem;
+  font-size: 0.24rem;
+  color: #fcb081;
+  background-color: #bc5521;
+  border-radius: 0.21rem;
+  border: solid 0.02rem #d87747;
+}
+.container .activity .activityBox01 .grabNumber .number {
+  color: #fad765;
+}
+.container .activity .activityBox01 .achievementAward {
+  width: 7rem;
+  margin: 0 auto;
+}
+.container .activity .activityBox01 .achievementAward .package {
+  width: 7rem;
+  margin: 0 auto;
+}
+.container .activity .activityBox01 .achievementAward .package .packageAll {
+  display: inline-block;
+  width: 1.76rem;
+  height: 1.53rem;
+  vertical-align: middle;
+  margin: auto 0.12rem;
+  font-size: 0;
+  background-image: url(image/103f60fc.sprite1.png);
+  background-size: 8.93rem 7.8rem;
+}
+.container .activity .activityBox01 .achievementAward .package .packageReceived {
+  background-position: 0 -2.04rem;
+}
+.container .activity .activityBox01 .achievementAward .package .packageReceiveWill {
+  background-position: -3.93rem 0;
+}
+.container .activity .activityBox01 .achievementAward .package .packageReceiveNot {
+  background-position: -1.76rem -2.04rem;
+}
+.container .activity .activityBox01 .achievementAward .progressBar {
+  width: 5.75rem;
+  margin: 0 auto;
+}
+.container .activity .activityBox01 .achievementAward .progressBar .progressLine {
+  display: inline-block;
+  width: 5.75rem;
+  height: 0.24rem;
+  margin-top: 0.16rem;
+  padding: 0 0.63rem;
+  border-radius: 0.12rem;
+  border: solid 0.02rem #db7440;
+  background: linear-gradient(#3bd37b, #3bd37b) no-repeat #9c3c1a;
+}
+.container .activity .activityBox01 .achievementAward .progressBar .progressLine .progressIconMiddle {
+  margin: auto 1.63rem;
+}
+.container .activity .activityBox01 .achievementAward .progressBar .progressLine .progressIcon {
+  display: inline-block;
+  width: 0.35rem;
+  height: 0.35rem;
+  margin-top: -0.06rem;
+  background-image: url(image/103f60fc.sprite1.png);
+  background-position: -8.52rem -2.9rem;
+  background-size: 8.93rem 7.8rem;
+}
+.container .activity .activityBox01 .achievementAward .progressBar .progressLineA {
+  background-size: 0% 100%;
+}
+.container .activity .activityBox01 .achievementAward .progressBar .progressLineB {
+  background-size: 14% 100%;
+}
+.container .activity .activityBox01 .achievementAward .progressBar .progressLineB .progressIcon1 {
+  background-position: -8.52rem -2.29rem;
+}
+.container .activity .activityBox01 .achievementAward .progressBar .progressLineC {
+  background-size: 50% 100%;
+}
+.container .activity .activityBox01 .achievementAward .progressBar .progressLineC .progressIcon1 {
+  background-position: -8.52rem -2.29rem;
+}
+.container .activity .activityBox01 .achievementAward .progressBar .progressLineC .progressIcon2 {
+  background-position: -8.52rem -2.29rem;
+}
+.container .activity .activityBox01 .achievementAward .progressBar .progressLineD {
+  background-size: 86% 100%;
+}
+.container .activity .activityBox01 .achievementAward .progressBar .progressLineD .progressIcon1 {
+  background-position: -8.52rem -2.29rem;
+}
+.container .activity .activityBox01 .achievementAward .progressBar .progressLineD .progressIcon2 {
+  background-position: -8.52rem -2.29rem;
+}
+.container .activity .activityBox01 .achievementAward .progressBar .progressLineD .progressIcon3 {
+  background-position: -8.52rem -2.29rem;
+}
+.container .activity .activityBox01 .achievementAward .progressBar .progressLineE {
+  background-size: 100% 100%;
+}
+.container .activity .activityBox01 .achievementAward .progressBar .progressLineE .progressIcon1 {
+  background-position: -8.52rem -2.29rem;
+}
+.container .activity .activityBox01 .achievementAward .progressBar .progressLineE .progressIcon2 {
+  background-position: -8.52rem -2.29rem;
+}
+.container .activity .activityBox01 .achievementAward .progressBar .progressLineE .progressIcon3 {
+  background-position: -8.52rem -2.29rem;
+}
+.container .activity .activityBox01 .achievementAward .progressBar .progressMsg {
+  display: inline-block;
+  width: 5.12rem;
+  margin: 0 auto;
+  font-size: 0.22rem;
+  color: #ffd3a3;
+}
+.container .activity .activityBox01 .achievementAward .progressBar .progressMsg .catchNum {
+  display: inline-block;
+  width: 1rem;
+  margin-top: 0.18rem;
+  font-family: FZY4JW;
+  text-align: center;
+}
+.container .activity .activityBox01 .achievementAward .progressBar .progressMsg .catchNumMiddle {
+  margin: auto 0.91rem;
+}
+.container .activity .activityBox02 {
+  margin-top: 0.52rem;
+  /* background-image: url(../assets/sprites/sprite2.png);
+            background-position: 0 0;
+            background-size: 14.080rem 10.070rem; */
+  background-image: url(image/cb575080.activityBox02.png);
+  background-position: 0 0;
+  background-size: 7.04rem 4.25rem;
+}
+.container .activity .activityBox02 .activityBoxTitle {
+  /* background-image: url(../assets/sprites/sprite2.png);
+                background-position: -7.500rem -7.160rem; */
+  background-image: url(image/d0723216.activityTitle02.png);
+  background-position: 0 0;
+  background-size: 5.84rem 1.18rem;
+}
+.container .activity .activityBox02 .signCard {
+  margin: 0 auto;
+  margin-top: 0.24rem;
+  overflow: hidden;
+}
+.container .activity .activityBox02 .signCard .dayCard {
+  display: inline-block;
+  width: 0.81rem;
+  height: 0.99rem;
+  margin-left: 0.09rem;
+  border-radius: 0.1rem;
+  border: solid 0.02rem #fea16b;
+  background-color: #b15121;
+  background-image: url(image/103f60fc.sprite1.png);
+  background-size: 8.93rem 7.8rem;
+}
+.container .activity .activityBox02 .signCard .day01 {
+  background-position: -5.69rem -2.8rem;
+}
+.container .activity .activityBox02 .signCard .day02 {
+  background-position: -6.5rem -2.8rem;
+}
+.container .activity .activityBox02 .signCard .day03 {
+  background-position: -5.69rem -3.79rem;
+}
+.container .activity .activityBox02 .signCard .day04 {
+  background-position: -6.5rem -3.79rem;
+}
+.container .activity .activityBox02 .signCard .day05 {
+  background-position: 0 -5.44rem;
+}
+.container .activity .activityBox02 .signCard .day06 {
+  background-position: -0.81rem -5.44rem;
+}
+.container .activity .activityBox02 .signCard .day07 {
+  background-position: -1.62rem -5.44rem;
+}
+.container .activity .activityBox02 .signCard .dayGot {
+  border: solid 0.02rem #ffffff;
+  background-size: 0.81rem 0.99rem;
+  background-color: #3bd37b;
+  background-image: url(image/103f60fc.sprite1.png);
+  background-size: 8.93rem 7.8rem;
+}
+.container .activity .activityBox02 .signCard .dayGot01 {
+  background-position: -2.43rem -5.44rem;
+}
+.container .activity .activityBox02 .signCard .dayGot02 {
+  background-position: -3.24rem -5.44rem;
+}
+.container .activity .activityBox02 .signCard .dayGot03 {
+  background-position: -4.05rem -5.44rem;
+}
+.container .activity .activityBox02 .signCard .dayGot04 {
+  background-position: -4.86rem -5.44rem;
+}
+.container .activity .activityBox02 .signCard .dayGot05 {
+  background-position: -5.67rem -5.44rem;
+}
+.container .activity .activityBox02 .signCard .dayGot06 {
+  background-position: -6.48rem -5.44rem;
+}
+.container .activity .activityBox02 .signCard .dayGot07 {
+  background-position: 0 -6.43rem;
+  background-color: #ff672b;
+}
+.container .activity .activityBox02 .divider {
+  display: inline-block;
+  width: 6.42rem;
+  height: 0.03rem;
+  margin-top: 0.32rem;
+  font-size: 0.29rem;
+  font-weight: bold;
+  color: #df7c47;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAoIAAAADBAMAAAD1rXNyAAAAD1BMVEX+oWv+oWv+oWtHcEz+oWs9xdBiAAAABXRSTlNjSRYAMbOQw2MAAACuSURBVCjPvY7BFYIwEEQXtAA2pAAiFiCYAlTsvyaTmTzeeOUAh8/L7p9MLFn5ulxp81B5eVVeF4xWcMSon+BytKnL+E1dxrO6k1Q1d5Kq5mrV4WedWGXY2AP8gD02HWS7GzVcSZcXB3UZ/6rLeFJXq5qrVXRHrTr8rBOrbBncu5gL3GdwTPUXFxye7kXY3pUBo7hisWFBN+xxdQt95Ygu439uqmxVdGetOvysE6t+J8YutLaQHikAAAAASUVORK5CYII=);
+  background-size: 6.42rem 0.03rem;
+}
+.container .activity .activityBox02 .signBtn {
+  width: 5.8rem;
+  margin: 0 auto;
+  margin-top: 0.37rem;
+}
+.container .activity .activityBox02 .signBtn .btn {
+  width: 2.73rem;
+  height: 0.93rem;
+  background-color: #e67825;
+  box-shadow: 0 0.02rem 0.05rem 0.03rem rgba(157, 77, 41, 0.2);
+  border-radius: 0.47rem;
+}
+.container .activity .activityBox02 .signBtn .btnAble {
+  background-image: linear-gradient(0deg, #fab635 0%, #ffe581 100%);
+  box-shadow: inset 0 0.02rem 0.03rem 0 rgba(255, 255, 255, 0.67);
+  box-shadow: 0 0.08rem #e67824;
+  border-radius: 0.47rem;
+}
+.container .activity .activityBox02 .signBtn .btnUnable {
+  background-image: linear-gradient(0deg, #959595 0%, #f3f3f3 100%);
+  box-shadow: inset 0 0.02rem 0.03rem 0 rgba(255, 255, 255, 0.67);
+  box-shadow: 0 0.08rem #7d7d7d;
+  border-radius: 0.47rem;
+}
+.container .activity .activityBox02 .signBtn .signSubmit .btnText {
+  display: inline-block;
+  width: 1.86rem;
+  height: 0.4rem;
+  background-image: url(image/103f60fc.sprite1.png);
+  background-position: -0.81rem -6.43rem;
+  background-size: 8.93rem 7.8rem;
+}
+.container .activity .activityBox02 .signBtn .getAward {
+  margin-left: 0.34rem;
+}
+.container .activity .activityBox02 .signBtn .getAward .btnText {
+  display: inline-block;
+  width: 1.43rem;
+  height: 0.38rem;
+  background-image: url(image/103f60fc.sprite1.png);
+  background-position: -5.9rem -6.43rem;
+  background-size: 8.93rem 7.8rem;
+}
+.container .footer {
+  width: 7.5rem;
+  height: 1.8rem;
+  margin-top: 0.7rem;
+  padding-top: 0.42rem;
+  background-color: #bf602c;
+}
+.container .footer .propaganda {
+  width: 3.45rem;
+  height: 0.33rem;
+  margin: 0 auto;
+  background-image: url(image/103f60fc.sprite1.png);
+  background-position: 0 -5.11rem;
+  background-size: 8.93rem 7.8rem;
+}
+.container .footer .statement {
+  width: 100%;
+  margin-top: 0.16rem;
+  font-size: 0.22rem;
+  color: #f7a67a;
+  line-height: 0.3rem;
+  letter-spacing: 1px;
+}
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 7.5rem;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  text-align: center;
+  z-index: 9999;
+}
+.popup .popupBox {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.popup .popupBox .titleBox {
+  width: 2.73rem;
+  height: 0.68rem;
+  margin: 0 auto;
+  margin-top: 0.16rem;
+  background-image: url(image/103f60fc.sprite1.png);
+  background-position: 0 -4.43rem;
+  background-size: 8.93rem 7.8rem;
+}
+.popup .popupBox .popupCloseBtn {
+  position: absolute;
+  top: 0.13rem;
+  right: 0.32rem;
+  width: 0.76rem;
+  height: 0.76rem;
+  background-image: url(image/103f60fc.sprite1.png);
+  background-position: -7.93rem -1.53rem;
+  background-size: 8.93rem 7.8rem;
+}
+.popup .popupActivityRulesBox {
+  display: none;
+  width: 6.66rem;
+  height: 7.75rem;
+  /* background-image: url(../assets/sprites/sprite3.png);
+        background-position: -13.300rem 0;
+        background-size: 26.610rem 15.310rem; */
+  background-image: url(image/fe42c3c4.popupActivityRules.png);
+  background-position: 0 0;
+  background-size: 6.66rem 7.75rem;
+}
+.popup .popupActivityRulesBox .titleBox .titleText {
+  display: inline-block;
+  width: 1.42rem;
+  height: 0.38rem;
+  margin: 0 auto;
+  margin-top: 0.15rem;
+  background-image: url(image/103f60fc.sprite1.png);
+  background-position: -2.86rem -7.42rem;
+  background-size: 8.93rem 7.8rem;
+  vertical-align: top;
+}
+.popup .popupActivityRulesBox .activityRulesText {
+  width: 5.72rem;
+  height: 5.82rem;
+  margin: 0.56rem 0.32rem 0.51rem 0.57rem;
+  padding-right: 0.2rem;
+  line-height: 0.31rem;
+  overflow-y: scroll;
+}
+.popup .popupActivityRulesBox .activityRulesText p {
+  margin-bottom: 0.31rem;
+  font-size: 0.24rem;
+  color: #b4ceef;
+  text-align: left;
+}
+.popup .popupRewardPreviewBox {
+  display: none;
+  width: 6.66rem;
+  height: 6.26rem;
+  /* background-image: url(../assets/sprites/sprite3.png);
+        background-position: 0 -9.050rem;
+        background-size: 26.610rem 15.310rem; */
+  background-image: url(image/d851ae5a.popupRewardPreview.png);
+  background-position: 0 0;
+  background-size: 6.66rem 6.26rem;
+}
+.popup .popupRewardPreviewBox .titleBox .titleText {
+  display: inline-block;
+  width: 1.42rem;
+  height: 0.38rem;
+  margin: 0 auto;
+  margin-top: 0.15rem;
+  background-image: url(image/103f60fc.sprite1.png);
+  background-position: 0 -7.42rem;
+  background-size: 8.93rem 7.8rem;
+  vertical-align: top;
+}
+.popup .popupRewardPreviewBox .rewardPreviewContent {
+  display: inline-block;
+  width: 4.87rem;
+  text-align: center;
+  font-size: 0;
+}
+.popup .popupRewardPreviewBox .rewardPreviewContent .conditionUnlick {
+  width: 4.87rem;
+  height: 0.94rem;
+  margin-top: 0.49rem;
+  background-color: #5785bf;
+  box-shadow: 0 0.09rem 0.25rem 0.07rem rgba(30, 62, 103, 0.14);
+  border-radius: 0.45rem;
+  border: solid 0.02rem #97bae6;
+  font-size: 0;
+}
+.popup .popupRewardPreviewBox .rewardPreviewContent .conditionUnlick .lock {
+  display: inline-block;
+  vertical-align: top;
+  width: 0.28rem;
+  height: 0.4rem;
+  margin-top: 0.2rem;
+  background-image: url(image/103f60fc.sprite1.png);
+  background-position: -8.41rem -3.9rem;
+  background-size: 8.93rem 7.8rem;
+}
+.popup .popupRewardPreviewBox .rewardPreviewContent .conditionUnlick .conditionText {
+  display: inline-block;
+  margin-top: 0.25rem;
+  margin-left: 0.12rem;
+  vertical-align: top;
+  font-size: 0.3rem;
+  font-weight: bold;
+  color: #c0d7f5;
+}
+.popup .popupRewardPreviewBox .rewardPreviewContent .conditionUnlick .conditionText .conditionNum {
+  color: #f3de6c;
+}
+.popup .popupRewardPreviewBox .rewardPreviewContent .arrowDown {
+  display: inline-block;
+  width: 0.3rem;
+  height: 0.18rem;
+  margin-top: 0.25rem;
+  background-image: url(image/103f60fc.sprite1.png);
+  background-position: -8.52rem -3.25rem;
+  background-size: 8.93rem 7.8rem;
+  font-size: 0;
+}
+.popup .popupRewardPreviewBox .rewardPreviewContent .prizeBox {
+  width: 4.32rem;
+  height: 2.38rem;
+  margin: 0 auto;
+  margin-top: 0.4rem;
+  border-radius: 0.3rem;
+  border: solid 0.03rem #ffe8a3;
+}
+.popup .popupRewardPreviewBox .rewardPreviewContent .prizeBox .willGet {
+  display: inline-block;
+  width: 100%;
+  height: 0.56rem;
+  margin-top: 0.15rem;
+  font-size: 0.32rem;
+  color: #ffe8a3;
+  font-weight: bold;
+  border-bottom: solid 0.03rem #ffe8a3;
+}
+.popup .popupRewardPreviewBox .rewardPreviewContent .prizeBox .catchTicket {
+  display: inline-block;
+  width: 3.14rem;
+  height: 0.99rem;
+  margin-top: 0.32rem;
+  background-image: url(image/103f60fc.sprite1.png);
+  background-position: 0 -1.05rem;
+  background-size: 8.93rem 7.8rem;
+  text-align: right;
+}
+.popup .popupRewardPreviewBox .rewardPreviewContent .prizeBox .catchTicket .XNumber {
+  display: inline-block;
+  width: 0.33rem;
+  height: 0.3rem;
+  margin-top: 0.34rem;
+  margin-right: 0.34rem;
+  background-image: url(image/103f60fc.sprite1.png);
+  background-position: -7.93rem -4.38rem;
+  background-size: 8.93rem 7.8rem;
+}
+.popup .popupWarehouseBox {
+  display: none;
+  width: 6.65rem;
+  height: 9.05rem;
+  /* background-image: url(../assets/sprites/sprite3.png);
+        background-position: 0 0;
+        background-size: 26.610rem 15.310rem; */
+  background-image: url(image/4aa7b7e6.popupWarehouse.png);
+  background-position: 0 0;
+  background-size: 6.65rem 9.05rem;
+}
+.popup .popupWarehouseBox .titleBox .titleText {
+  display: inline-block;
+  width: 0.73rem;
+  height: 0.39rem;
+  margin: 0 auto;
+  margin-top: 0.15rem;
+  background-image: url(image/103f60fc.sprite1.png);
+  background-position: -7.93rem -3.51rem;
+  background-size: 8.93rem 7.8rem;
+  vertical-align: top;
+}
+.popup .popupWarehouseBox .warehouseContent {
+  width: 5.6rem;
+  margin: 0 auto;
+}
+.popup .popupWarehouseBox .warehouseContent .tableTitle {
+  width: 4.27rem;
+  height: 0.5rem;
+  margin: 0 auto;
+  margin-top: 0.46rem;
+  font-size: 0.26rem;
+  color: #c0d7f5;
+  font-weight: bold;
+}
+.popup .popupWarehouseBox .warehouseContent .tableTitle .title1 {
+  float: left;
+}
+.popup .popupWarehouseBox .warehouseContent .tableTitle .title3 {
+  float: right;
+}
+.popup .popupWarehouseBox .warehouseContent .warehouseList {
+  width: 5.6rem;
+  height: 6.5rem;
+  margin-top: 0.07rem;
+  margin-left: 0.1rem;
+  padding-right: 0.2rem;
+  font-size: 0.24rem;
+  color: #c0d7f5;
+  overflow-y: scroll;
+}
+.popup .popupWarehouseBox .warehouseContent .warehouseList .warehouseItem {
+  width: 5.4rem;
+  height: 0.74rem;
+  margin-bottom: 0.16rem;
+  padding: 0.22rem 0.3rem;
+  box-shadow: 0 0.09rem 0.25rem 0.07rem rgba(30, 62, 103, 0.14);
+  border-radius: 0.36rem;
+  border: solid 0.02rem #97bae6;
+}
+.popup .popupWarehouseBox .warehouseContent .warehouseList .warehouseItem .left {
+  float: left;
+  width: 1.65rem;
+  color: #f3de6c;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.popup .popupWarehouseBox .warehouseContent .warehouseList .warehouseItem .right {
+  float: right;
+  width: 1.65rem;
+  text-align: right;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.popup .popupWarehouseBox .warehouseContent .warehouseList .warehouseItem .right a {
+  color: #58ff7f;
+  text-decoration: underline;
+}
+.popup .popupWarehouseBox .warehouseContent .warehouseList .warehouseItem .specialText {
+  margin-top: -0.1rem;
+  font-size: 0.2rem;
+  line-height: 0.24rem;
+  white-space: unset;
+}
+.popup .popupInputUserInfoBox {
+  display: none;
+  width: 6.65rem;
+  height: 8.24rem;
+  /* background-image: url(../assets/sprites/sprite3.png);
+        background-position: -6.650rem 0;
+        background-size: 26.610rem 15.310rem; */
+  background-image: url(image/8b92050b.popupInputUserInfo.png);
+  background-position: 0 0;
+  background-size: 6.65rem 8.24rem;
+}
+.popup .popupInputUserInfoBox .titleBox .titleText {
+  display: inline-block;
+  width: 0.73rem;
+  height: 0.39rem;
+  margin: 0 auto;
+  margin-top: 0.15rem;
+  background-image: url(image/103f60fc.sprite1.png);
+  background-position: -7.93rem -3.51rem;
+  background-size: 8.93rem 7.8rem;
+  vertical-align: top;
+}
+.popup .popupInputUserInfoBox .inputUserInfoContent {
+  width: 4.7rem;
+  height: 6rem;
+  margin: 0 auto;
+  margin-top: 0.5rem;
+  font-size: 0.26rem;
+  color: #b4ceef;
+}
+.popup .popupInputUserInfoBox .inputUserInfoContent .content {
+  width: 100%;
+  margin-top: 0.22rem;
+  font-weight: bold;
+}
+.popup .popupInputUserInfoBox .inputUserInfoContent .content input {
+  width: 3.5rem;
+  height: 0.68rem;
+  background-color: #1a3558;
+  border: 0;
+  border-radius: 0.18rem;
+  font-size: 0.26rem;
+  color: #5d81b0;
+  text-indent: 0.25rem;
+}
+.popup .popupInputUserInfoBox .inputUserInfoContent .content3 {
+  margin-top: 0.34rem;
+}
+.popup .popupInputUserInfoBox .inputUserInfoContent .content3 .labelAddress {
+  float: left;
+}
+.popup .popupInputUserInfoBox .inputUserInfoContent .content3 .address {
+  width: 4.66rem;
+  height: 1.67rem;
+  margin-top: 0.22rem;
+  padding: 0.1rem 0.25rem;
+  background-color: #1a3558;
+  border: 0;
+  border-radius: 0.18rem;
+  font-size: 0.26rem;
+  color: #5d81b0;
+  line-height: 0.4rem;
+}
+.popup .popupInputUserInfoBox .inputUserInfoContent .userInfoSubmit {
+  width: 3.43rem;
+  height: 0.93rem;
+  margin-top: 0.48rem;
+  background-image: linear-gradient(0deg, #66bbec 0%, #ccf3ff 100%);
+  box-shadow: inset 0 0.02rem 0.03rem 0 rgba(255, 255, 255, 0.67);
+  box-shadow: 0 0.06rem #348cbf;
+  border: 0;
+  border-radius: 0.47rem;
+}
+.popup .popupInputUserInfoBox .inputUserInfoContent .userInfoSubmit .submitText {
+  display: inline-block;
+  width: 1.43rem;
+  height: 0.38rem;
+  margin-top: 0.02rem;
+  background-image: url(image/103f60fc.sprite1.png);
+  background-position: -1.43rem -7.42rem;
+  background-size: 8.93rem 7.8rem;
+}
+.popup .popupInputUserInfoBox .inputUserInfoContent .warnText {
+  margin-top: 0.38rem;
+  font-size: 0.22rem;
+  color: #fff154;
+}
+.popup .popupInputQQBox {
+  display: none;
+  width: 6.65rem;
+  height: 5.94rem;
+  /* background-image: url(../assets/sprites/sprite3.png);
+        background-position: -6.650rem -9.050rem;
+        background-size: 26.610rem 15.310rem; */
+  background-image: url(image/8886cde1.popupInputQQ.png);
+  background-position: -6.65rem -9.05rem;
+  background-size: 26.61rem 15.31rem;
+}
+.popup .popupInputQQBox .titleBox .titleText {
+  display: inline-block;
+  width: 0.73rem;
+  height: 0.39rem;
+  margin: 0 auto;
+  margin-top: 0.15rem;
+  background-image: url(image/103f60fc.sprite1.png);
+  background-position: -7.93rem -3.51rem;
+  background-size: 8.93rem 7.8rem;
+  vertical-align: top;
+}
+.popup .popupInputQQBox .inputQQContent {
+  width: 4.7rem;
+  height: 6rem;
+  margin: 0 auto;
+  margin-top: 0.5rem;
+  font-size: 0.26rem;
+  color: #b4ceef;
+}
+.popup .popupInputQQBox .inputQQContent .content {
+  width: 100%;
+  margin-top: 0.9rem;
+  font-weight: bold;
+}
+.popup .popupInputQQBox .inputQQContent .content input {
+  width: 3.5rem;
+  height: 0.68rem;
+  background-color: #1a3558;
+  border: 0;
+  border-radius: 0.18rem;
+  font-size: 0.26rem;
+  color: #5d81b0;
+  text-indent: 0.25rem;
+}
+.popup .popupInputQQBox .inputQQContent .qqSubmit {
+  width: 3.43rem;
+  height: 0.93rem;
+  margin-top: 1.18rem;
+  background-image: linear-gradient(0deg, #66bbec 0%, #ccf3ff 100%);
+  box-shadow: inset 0 0.02rem 0.03rem 0 rgba(255, 255, 255, 0.67);
+  box-shadow: 0 0.06rem #348cbf;
+  border: 0;
+  border-radius: 0.47rem;
+}
+.popup .popupInputQQBox .inputQQContent .qqSubmit .submitText {
+  display: inline-block;
+  width: 1.43rem;
+  height: 0.38rem;
+  margin-top: 0.02rem;
+  background-image: url(image/103f60fc.sprite1.png);
+  background-position: -1.43rem -7.42rem;
+  background-size: 8.93rem 7.8rem;
+}
+.popup .popupInputQQBox .inputQQContent .warnText {
+  margin-top: 0.38rem;
+  font-size: 0.22rem;
+  color: #fff154;
+}
+.popup .popupPromptBox {
+  display: none;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0 auto;
+}
+.popup .popupPromptBox .popupCloseBtn {
+  position: absolute;
+  top: -0.9rem;
+  right: 0.32rem;
+  width: 0.76rem;
+  height: 0.76rem;
+  background-image: url(image/103f60fc.sprite1.png);
+  background-position: -7.93rem -1.53rem;
+  background-size: 8.93rem 7.8rem;
+}
+.popup .popupIntroIcon {
+  display: inline-block;
+  font-size: 0;
+}
+.popup .popupIntroIcon .promptBox {
+  display: none;
+}
+.popup .popupIntroIcon .promptBox .msg {
+  display: none;
+  height: 1rem;
+  margin-top: 1.35rem;
+  font-size: 0.28rem;
+  line-height: 0.38rem;
+  color: #b4ceef;
+}
+.popup .popupIntroIcon .promptBox .msg .specialText {
+  color: #ffe44d;
+}
+.popup .popupIntroIcon .promptBox .btn {
+  margin-top: 0.44rem;
+}
+.popup .popupIntroIcon .promptBox .btn .confirmPayment {
+  width: 2.73rem;
+  height: 0.93rem;
+  background-image: linear-gradient(0deg, #fab635 0%, #ffe581 100%);
+  box-shadow: inset 0 0.02rem 0.03rem 0 rgba(255, 255, 255, 0.67);
+  box-shadow: 0 0.08rem #e67824;
+  border-radius: 0.47rem;
+}
+.popup .popupIntroIcon .promptBox .btn .confirmPayment .btnText {
+  display: inline-block;
+  width: 1.43rem;
+  height: 0.38rem;
+  background-image: url(image/103f60fc.sprite1.png);
+  background-position: -4.47rem -6.43rem;
+  background-size: 8.93rem 7.8rem;
+}
+.popup .popupIntroIcon .promptBox .btn .confirmPayment2 {
+  width: 3.43rem;
+}
+.popup .popupIntroIcon .promptBox .btn .useCatchVoucher {
+  width: 2.73rem;
+  height: 0.93rem;
+  margin-left: 0.22rem;
+  background-image: linear-gradient(0deg, #66bbec 0%, #ccf3ff 100%);
+  box-shadow: inset 0 0.02rem 0.03rem 0 rgba(255, 255, 255, 0.67);
+  box-shadow: 0 0.08rem #348cbf;
+  border-radius: 0.47rem;
+}
+.popup .popupIntroIcon .promptBox .btn .useCatchVoucher .btnText {
+  display: inline-block;
+  width: 1.8rem;
+  height: 0.38rem;
+  background-image: url(image/103f60fc.sprite1.png);
+  background-position: -2.67rem -6.43rem;
+  background-size: 8.93rem 7.8rem;
+}
+.popup .popupIntroIcon .promptBox .btn .toJoin {
+  width: 3.43rem;
+  height: 0.94rem;
+  background-image: linear-gradient(0deg, #fab635 0%, #ffe581 100%);
+  box-shadow: inset 0 0.02rem 0.03rem 0 rgba(255, 255, 255, 0.67);
+  box-shadow: 0 0.08rem #e67824;
+  border-radius: 0.47rem;
+}
+.popup .popupIntroIcon .promptBox .btn .toJoin .btnText {
+  display: inline-block;
+  width: 1.06rem;
+  height: 0.39rem;
+  background-image: url(image/103f60fc.sprite1.png);
+  background-position: -6.53rem -6.83rem;
+  background-size: 8.93rem 7.8rem;
+}
+.popup .popupIntroIcon .promptBox .btn .acceptHappy {
+  width: 3.43rem;
+  height: 0.94rem;
+  background-image: linear-gradient(0deg, #fab635 0%, #ffe581 100%);
+  box-shadow: inset 0 0.02rem 0.03rem 0 rgba(255, 255, 255, 0.67);
+  box-shadow: 0 0.08rem #e67824;
+  border-radius: 0.47rem;
+}
+.popup .popupIntroIcon .promptBox .btn .acceptHappy .btnText {
+  display: inline-block;
+  width: 1.43rem;
+  height: 0.39rem;
+  background-image: url(image/103f60fc.sprite1.png);
+  background-position: -2.25rem -6.83rem;
+  background-size: 8.93rem 7.8rem;
+}
+.popup .popupIntroIcon .promptBox .btn .tryAgain {
+  width: 3.43rem;
+  height: 0.94rem;
+  background-image: linear-gradient(0deg, #fab635 0%, #ffe581 100%);
+  box-shadow: inset 0 0.02rem 0.03rem 0 rgba(255, 255, 255, 0.67);
+  box-shadow: 0 0.08rem #e67824;
+  border-radius: 0.47rem;
+}
+.popup .popupIntroIcon .promptBox .btn .tryAgain .btnText {
+  display: inline-block;
+  width: 1.42rem;
+  height: 0.39rem;
+  background-image: url(image/103f60fc.sprite1.png);
+  background-position: -5.11rem -6.83rem;
+  background-size: 8.93rem 7.8rem;
+}
+.popup .popupIntroIcon .promptBox .btn .topupIcon {
+  width: 3.43rem;
+  height: 0.93rem;
+  background-image: linear-gradient(0deg, #66bbec 0%, #ccf3ff 100%);
+  box-shadow: inset 0 0.02rem 0.03rem 0 rgba(255, 255, 255, 0.67);
+  box-shadow: 0 0.08rem #348cbf;
+  border-radius: 0.47rem;
+}
+.popup .popupIntroIcon .promptBox .btn .topupIcon .btnText {
+  display: inline-block;
+  width: 1.42rem;
+  height: 0.39rem;
+  background-image: url(image/103f60fc.sprite1.png);
+  background-position: -3.68rem -6.83rem;
+  background-size: 8.93rem 7.8rem;
+}
+.popup .popupIntroIcon .promptBox .btn .inputAddress {
+  width: 3.43rem;
+  height: 0.93rem;
+  margin-left: 0.22rem;
+  background-image: linear-gradient(0deg, #66bbec 0%, #ccf3ff 100%);
+  box-shadow: inset 0 0.02rem 0.03rem 0 rgba(255, 255, 255, 0.67);
+  box-shadow: 0 0.08rem #348cbf;
+  border-radius: 0.47rem;
+}
+.popup .popupIntroIcon .promptBox .btn .inputAddress .btnText {
+  display: inline-block;
+  width: 1.44rem;
+  height: 0.39rem;
+  background-image: url(image/103f60fc.sprite1.png);
+  background-position: -0.81rem -6.83rem;
+  background-size: 8.93rem 7.8rem;
+}
+.popup .popupIntroIcon .promptBox .btn .inputAddress .btnText .specialText {
+  color: #ffd441;
+}
+.popup .popupIntroIcon .promptBox .promptText {
+  display: none;
+  margin-top: 0.25rem;
+  font-size: 0.28rem;
+  line-height: 0.4rem;
+  color: #fff154;
+}
+.popup .popupIntroIcon .promptBox .promptText .specialText {
+  color: #db77ee;
+}
+.popup .popupIntroIcon .levelBox .level {
+  display: inline-block;
+  width: 5.18rem;
+  height: 0.75rem;
+  box-shadow: 0 0.09rem 0.25rem 0.07rem rgba(30, 62, 103, 0.14);
+  border-radius: 0.36rem;
+  border: solid 0.02rem #97bae6;
+  font-size: 0.24rem;
+  font-weight: bold;
+}
+.popup .popupIntroIcon .levelBox .level .title {
+  display: inline-block;
+  width: 1.2rem;
+  height: 0.71rem;
+  border-right: 0.02rem solid #97bae6;
+}
+.popup .popupIntroIcon .levelBox .level .message {
+  display: inline-block;
+  width: 2.9rem;
+  height: 0.71rem;
+  margin-left: 0.5rem;
+  text-align: left;
+}
+.popup .popupIntroIcon .levelBox .level .message .specialText {
+  color: #fff154;
+}
+.popup .popupIntroIcon .levelBox .level .middle::before {
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  height: 100%;
+}
+.popup .popupIntroIcon .levelBox .primary {
+  margin-top: 0.75rem;
+  background-color: #5785bf;
+  color: #c0d7f5;
+}
+.popup .popupIntroIcon .levelBox .intermediate {
+  margin-top: 0.15rem;
+  background-color: #5d9ff0;
+  color: #f3f8ff;
+}
+.popup .popupIntroIcon .levelBox .senior {
+  margin-top: 0.15rem;
+  background-image: linear-gradient(-40deg, #6962ff 0%, #f889ff 100%);
+  color: #f3f8ff;
+}
+.popup .popupIntroIcon .levelBox .intro {
+  margin-top: 0.44rem;
+  color: #fff154;
+  font-size: 0.28rem;
+}
+.popup .popupIntroIcon .levelBox .intro .specialText {
+  color: #e779f7;
+}
+.popup .popupIntroIcon .largeBox {
+  padding-top: 0.58rem;
+}
+.popup .popupIntroIcon .largeBox .pText1 {
+  font-size: 0.26rem;
+  line-height: 0.37rem;
+  color: #ffe079;
+}
+.popup .popupIntroIcon .largeBox .pText2 {
+  font-size: 0.22rem;
+  line-height: 0.29rem;
+  color: #b4ceef;
+}
+.popup .popupIntroIcon .largeBox .appLogo {
+  display: inline-block;
+  width: 1.82rem;
+  height: 1.82rem;
+  margin-top: 0.15rem;
+  margin-bottom: 0.15rem;
+  /* background-image: url(../assets/sprites/sprite3.png);
+                background-position: -19.960rem -9.040rem;
+                background-size: 26.610rem 15.310rem; */
+  background-image: url(image/6c23742d.appLogo.png);
+  background-position: 0 0;
+  background-size: 1.82rem;
+}
+.popup .popupIntroIcon .largeBox .downloadAppBtn {
+  width: 3.43rem;
+  height: 0.93rem;
+  margin-top: 0.26rem;
+  background-image: linear-gradient(0deg, #fab635 0%, #ffe581 100%);
+  box-shadow: inset 0 0.02rem 0.03rem 0 rgba(255, 255, 255, 0.67);
+  box-shadow: 0 0.06rem #e67824;
+  border-radius: 0.47rem;
+}
+.popup .popupIntroIcon .largeBox .downloadAppBtn .btnText {
+  display: inline-block;
+  width: 2.48rem;
+  height: 0.39rem;
+  background-image: url(image/103f60fc.sprite1.png);
+  background-position: -2.73rem -4.43rem;
+  background-size: 8.93rem 7.8rem;
+}
+.popup .popupIntroIcon .smallBox {
+  display: none;
+  width: 6.65rem;
+  height: 4.12rem;
+  /* background-image: url(../assets/sprites/sprite3.png);
+            background-position: -19.960rem -4.920rem;
+            background-size: 26.610rem 15.310rem; */
+  background-image: url(data:image/png;base64,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);
+  background-position: 0 0;
+  background-size: 6.65rem 4.12rem;
+}
+.popup .popupIntroIcon .middleBox {
+  width: 6.65rem;
+  height: 4.92rem;
+  /* background-image: url(../assets/sprites/sprite3.png);
+            background-position: -19.960rem 0;
+            background-size: 26.610rem 15.310rem; */
+  background-image: url(image/7abea0ef.popupMiddleBox.png);
+  background-position: 0 0;
+  background-size: 6.65rem 4.92rem;
+}
+.popup .popupIntroIcon .largeBox {
+  display: none;
+  width: 6.65rem;
+  height: 5.92rem;
+  /* background-image: url(../assets/sprites/sprite3.png);
+            background-position: -13.300rem -9.050rem;
+            background-size: 26.610rem 15.310rem; */
+  background-image: url(image/7812e9c3.popupLargeBox.png);
+  background-position: 0 0;
+  background-size: 6.65rem 5.92rem;
+}
+
+
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzdHlsZXMtMDlkODFlYzMuY3NzIiwic291cmNlUm9vdCI6IiJ9*/
